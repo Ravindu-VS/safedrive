@@ -49,12 +49,12 @@
            - Smooth 0.3s transitions between themes
         ============================================ */
         :root {
-            /* ========== LIGHT MODE (Warm Beige) ========== */
-            --color-bg: #DCC6A6;
-            --color-bg-rgb: 220, 198, 166;
-            --color-surface: #EADBC4;
-            --color-surface-elevated: #F0E3CF;
-            --color-surface-hover: #E5D4B8;
+            /* ========== LIGHT MODE (Soft Cream) ========== */
+            --color-bg: #FAF7F2;
+            --color-bg-rgb: 250, 247, 242;
+            --color-surface: #F5F0E8;
+            --color-surface-elevated: #FFFFFF;
+            --color-surface-hover: #EDE6DB;
             
             /* Text Colors */
             --color-text: #2B2B2B;
@@ -3106,7 +3106,8 @@
             if (savedTheme) {
                 return savedTheme;
             }
-            return prefersDarkScheme.matches ? 'dark' : 'light';
+            // Default to light theme
+            return 'light';
         }
         
         /**
