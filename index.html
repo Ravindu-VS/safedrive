@@ -3,31 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="SafeRide LK - Late night designated driver service in Colombo. Had a few drinks? We drive YOU and YOUR CAR home safely. No judgment, just safe rides. Call or WhatsApp 24/7.">
-    <meta name="keywords" content="designated driver, Colombo nightlife, safe ride home, drunk driving alternative, club pickup, bar pickup, late night driver">
-    <meta name="author" content="SafeRide LK">
-    <meta name="theme-color" content="#0f172a">
-    <title>SafeRide LK | Had a Drink? We'll Drive You & Your Car Home</title>
+    <meta name="description" content="NightPilot - Colombo's premium late-night designated driver service. Had a few drinks? We drive YOU and YOUR CAR home safely. No judgment, just safe rides.">
+    <meta name="keywords" content="designated driver, Colombo nightlife, safe ride home, drunk driving alternative, club pickup, bar pickup, late night driver, Sri Lanka">
+    <meta name="author" content="NightPilot">
+    <meta name="theme-color" content="#1E1F22">
+    <title>NightPilot | Your Car. Your Way Home. Safe.</title>
     
     <!-- ============================================
          GOOGLE ANALYTICS PLACEHOLDER
-         Replace YOUR_TRACKING_ID with your GA4 Measurement ID
-         Get from: Google Analytics > Admin > Data Streams
+         ============================================
+         To enable tracking:
+         1. Go to Google Analytics (analytics.google.com)
+         2. Create a new GA4 property
+         3. Get your Measurement ID (starts with G-)
+         4. Replace YOUR_MEASUREMENT_ID below
+         5. Uncomment the script tags
     ============================================ -->
     <!--
-    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_TRACKING_ID"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_MEASUREMENT_ID"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'YOUR_TRACKING_ID');
+        gtag('config', 'YOUR_MEASUREMENT_ID');
     </script>
     -->
     
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -35,125 +40,118 @@
     <style>
         /* ============================================
            CSS CUSTOM PROPERTIES - THEME SYSTEM
-           Nightlife-oriented with professional trust
+           Premium Lounge aesthetic with warm tones
+           
+           Theme Toggle Logic:
+           - Auto-detects system preference on first load
+           - Manual toggle overrides system preference
+           - Choice persisted in localStorage
+           - Smooth 0.3s transitions between themes
         ============================================ */
         :root {
-            /* ========== LIGHT MODE (Default) ========== */
-            --color-bg-primary: #f8fafc;
-            --color-bg-secondary: #ffffff;
-            --color-bg-tertiary: #f1f5f9;
-            --color-bg-card: #ffffff;
-            --color-bg-card-hover: #f8fafc;
-            
-            /* Primary - Deep Blue/Indigo (Trust + Nightlife) */
-            --color-primary: #1e293b;
-            --color-primary-light: #334155;
-            --color-primary-dark: #0f172a;
-            
-            /* Accent - Teal/Cyan (Calm + Modern) */
-            --color-accent: #0891b2;
-            --color-accent-light: #06b6d4;
-            --color-accent-dark: #0e7490;
-            --color-accent-glow: rgba(8, 145, 178, 0.25);
-            
-            /* CTA - Vibrant but trustworthy */
-            --color-cta-call: #0891b2;
-            --color-cta-call-hover: #0e7490;
-            --color-cta-call-glow: rgba(8, 145, 178, 0.4);
-            
-            /* WhatsApp */
-            --color-whatsapp: #25D366;
-            --color-whatsapp-hover: #1ebe5d;
-            --color-whatsapp-glow: rgba(37, 211, 102, 0.4);
+            /* ========== LIGHT MODE (Warm Beige) ========== */
+            --color-bg: #DCC6A6;
+            --color-bg-rgb: 220, 198, 166;
+            --color-surface: #EADBC4;
+            --color-surface-elevated: #F0E3CF;
+            --color-surface-hover: #E5D4B8;
             
             /* Text Colors */
-            --color-text-primary: #0f172a;
-            --color-text-secondary: #334155;
-            --color-text-muted: #64748b;
-            --color-text-light: #94a3b8;
+            --color-text: #2B2B2B;
+            --color-text-secondary: #4A4039;
+            --color-text-muted: #6B5D4B;
+            --color-text-light: #8A7A68;
+            
+            /* Accent - Amber/Gold */
+            --color-accent: #D09D5A;
+            --color-accent-hover: #B9833E;
+            --color-accent-light: #E4B97A;
+            --color-accent-glow: rgba(208, 157, 90, 0.3);
+            
+            /* Functional Colors */
+            --color-success: #7A9E7E;
+            --color-whatsapp: #25D366;
+            --color-whatsapp-hover: #1eba5a;
             
             /* Borders & Effects */
-            --color-border: #e2e8f0;
-            --color-border-accent: rgba(8, 145, 178, 0.3);
+            --color-border: rgba(107, 93, 75, 0.2);
+            --color-border-accent: rgba(208, 157, 90, 0.4);
             
-            /* Shadows */
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
-            --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.1);
-            --shadow-cta: 0 8px 30px var(--color-cta-call-glow);
-            --shadow-whatsapp: 0 8px 30px var(--color-whatsapp-glow);
+            /* Shadows - Soft and warm */
+            --shadow-sm: 0 2px 8px rgba(43, 43, 43, 0.06);
+            --shadow-md: 0 4px 20px rgba(43, 43, 43, 0.08);
+            --shadow-lg: 0 8px 40px rgba(43, 43, 43, 0.12);
+            --shadow-accent: 0 6px 24px rgba(208, 157, 90, 0.35);
+            --shadow-card: 0 4px 16px rgba(43, 43, 43, 0.08);
             
-            /* Spacing */
-            --spacing-xs: 0.5rem;
-            --spacing-sm: 1rem;
-            --spacing-md: 1.5rem;
-            --spacing-lg: 2rem;
-            --spacing-xl: 3rem;
-            --spacing-2xl: 4rem;
-            --spacing-3xl: 6rem;
+            /* Card Highlight (for dark mode, light uses shadow) */
+            --card-highlight: none;
             
-            /* Border Radius */
+            /* Spacing Scale */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            --space-3xl: 6rem;
+            
+            /* Border Radius - Soft rounded */
             --radius-sm: 8px;
             --radius-md: 12px;
             --radius-lg: 16px;
             --radius-xl: 24px;
             --radius-full: 50px;
             
-            /* Typography - Large & Readable */
-            --font-display: 'Space Grotesk', sans-serif;
-            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-size-sm: 0.95rem;
-            --font-size-base: 1.1rem;
-            --font-size-lg: 1.25rem;
-            --font-size-xl: 1.5rem;
-            --font-size-2xl: 1.875rem;
-            --font-size-3xl: 2.25rem;
-            --font-size-4xl: 3rem;
-            --font-size-5xl: 3.75rem;
+            /* Typography */
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            
+            /* Font Sizes - Large for accessibility */
+            --text-xs: 0.875rem;
+            --text-sm: 1rem;
+            --text-base: 1.125rem;
+            --text-lg: 1.25rem;
+            --text-xl: 1.5rem;
+            --text-2xl: 1.875rem;
+            --text-3xl: 2.25rem;
+            --text-4xl: 3rem;
+            --text-5xl: 3.75rem;
             
             /* Transitions */
             --transition-fast: 0.15s ease;
-            --transition-normal: 0.3s ease;
-            --transition-slow: 0.5s ease;
-            --transition-theme: 0.4s ease;
+            --transition-base: 0.3s ease;
+            --transition-slow: 0.5s ease-out;
             
-            /* Container */
+            /* Layout */
             --container-max: 1100px;
-            --container-padding: 1.5rem;
+            --header-height: 72px;
         }
 
-        /* ========== DARK MODE - Nightlife Optimized ========== */
+        /* ========== DARK MODE (Charcoal) ========== */
         [data-theme="dark"] {
-            --color-bg-primary: #0a0e17;
-            --color-bg-secondary: #111827;
-            --color-bg-tertiary: #1a2234;
-            --color-bg-card: #151c2c;
-            --color-bg-card-hover: #1e2a3f;
+            --color-bg: #1E1F22;
+            --color-bg-rgb: 30, 31, 34;
+            --color-surface: #27282A;
+            --color-surface-elevated: #2E2F32;
+            --color-surface-hover: #343538;
             
-            --color-primary: #e2e8f0;
-            --color-primary-light: #f1f5f9;
-            --color-primary-dark: #cbd5e1;
+            --color-text: #F4E9D8;
+            --color-text-secondary: #E0D4C3;
+            --color-text-muted: #BFAF96;
+            --color-text-light: #8A7D6B;
             
-            --color-accent: #22d3ee;
-            --color-accent-light: #67e8f9;
-            --color-accent-dark: #06b6d4;
-            --color-accent-glow: rgba(34, 211, 238, 0.2);
+            --color-border: rgba(191, 175, 150, 0.15);
+            --color-border-accent: rgba(208, 157, 90, 0.35);
             
-            --color-cta-call: #22d3ee;
-            --color-cta-call-hover: #67e8f9;
-            --color-cta-call-glow: rgba(34, 211, 238, 0.35);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.25);
+            --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.35);
+            --shadow-accent: 0 6px 24px rgba(208, 157, 90, 0.25);
+            --shadow-card: none;
             
-            --color-text-primary: #f1f5f9;
-            --color-text-secondary: #cbd5e1;
-            --color-text-muted: #94a3b8;
-            --color-text-light: #64748b;
-            
-            --color-border: #1e293b;
-            --color-border-accent: rgba(34, 211, 238, 0.25);
-            
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
-            --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.5);
-            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.6);
+            /* Soft highlight glow for dark mode cards */
+            --card-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.05);
         }
 
         /* ============================================
@@ -174,23 +172,32 @@
 
         body {
             font-family: var(--font-body);
-            background-color: var(--color-bg-primary);
-            color: var(--color-text-primary);
+            background-color: var(--color-bg);
+            color: var(--color-text);
             line-height: 1.7;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
-            transition: background-color var(--transition-theme), color var(--transition-theme);
+            -moz-osx-font-smoothing: grayscale;
+            /* Smooth theme transitions */
+            transition: background-color var(--transition-base), color var(--transition-base);
         }
 
+        /* Typography */
         h1, h2, h3, h4, h5, h6 {
             font-family: var(--font-display);
             font-weight: 700;
+            line-height: 1.2;
+            color: var(--color-text);
+        }
+
+        p {
+            color: var(--color-text-secondary);
         }
 
         a {
             text-decoration: none;
             color: inherit;
-            transition: var(--transition-normal);
+            transition: color var(--transition-fast);
         }
 
         ul, ol {
@@ -210,10 +217,16 @@
             background: none;
         }
 
-        /* Focus for accessibility */
+        /* Focus States for Accessibility */
         :focus-visible {
             outline: 3px solid var(--color-accent);
             outline-offset: 3px;
+        }
+
+        /* Selection */
+        ::selection {
+            background: var(--color-accent);
+            color: #ffffff;
         }
 
         /* ============================================
@@ -223,114 +236,112 @@
             width: 100%;
             max-width: var(--container-max);
             margin: 0 auto;
-            padding: 0 var(--container-padding);
+            padding: 0 var(--space-md);
         }
 
         .section {
-            padding: var(--spacing-3xl) 0;
+            padding: var(--space-3xl) 0;
+            transition: background-color var(--transition-base);
         }
 
         .section--alt {
-            background-color: var(--color-bg-secondary);
-            transition: background-color var(--transition-theme);
+            background-color: var(--color-surface);
         }
 
-        .section--dark {
-            background-color: var(--color-bg-tertiary);
-            transition: background-color var(--transition-theme);
-        }
-
-        /* Section Header */
+        /* Section Headers */
         .section-header {
             text-align: center;
-            margin-bottom: var(--spacing-2xl);
+            margin-bottom: var(--space-2xl);
         }
 
-        .section-header__badge {
+        .section-badge {
             display: inline-flex;
             align-items: center;
-            gap: var(--spacing-xs);
+            gap: var(--space-xs);
             background: var(--color-accent-glow);
             border: 1px solid var(--color-border-accent);
             color: var(--color-accent);
-            padding: var(--spacing-xs) var(--spacing-md);
+            padding: var(--space-xs) var(--space-md);
             border-radius: var(--radius-full);
-            font-size: var(--font-size-sm);
+            font-size: var(--text-sm);
             font-weight: 600;
-            margin-bottom: var(--spacing-md);
-            transition: background-color var(--transition-theme), border-color var(--transition-theme);
+            margin-bottom: var(--space-sm);
+            transition: background-color var(--transition-base), border-color var(--transition-base);
         }
 
-        .section-header__title {
-            font-size: var(--font-size-3xl);
-            margin-bottom: var(--spacing-sm);
-            color: var(--color-text-primary);
+        .section-title {
+            font-size: var(--text-3xl);
+            margin-bottom: var(--space-sm);
         }
 
-        .section-header__title span {
+        .section-title span {
             color: var(--color-accent);
         }
 
-        .section-header__subtitle {
-            font-size: var(--font-size-lg);
+        .section-subtitle {
+            font-size: var(--text-lg);
             color: var(--color-text-muted);
             max-width: 600px;
             margin: 0 auto;
         }
 
         /* ============================================
-           BUTTON COMPONENTS - Large Touch Targets
+           BUTTON COMPONENTS
+           Large touch targets (min 48px, preferred 56-64px)
+           High contrast for visibility
         ============================================ */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: var(--spacing-sm);
-            padding: 1.25rem 2rem;
+            gap: var(--space-sm);
+            padding: 1.125rem 2rem;
             border-radius: var(--radius-lg);
-            font-family: var(--font-display);
-            font-size: var(--font-size-lg);
+            font-family: var(--font-body);
+            font-size: var(--text-lg);
             font-weight: 700;
-            transition: var(--transition-normal);
-            min-height: 64px;
+            min-height: 56px;
             text-align: center;
             cursor: pointer;
+            transition: all var(--transition-base);
         }
 
-        .btn--call {
-            background: var(--color-cta-call);
+        .btn i {
+            font-size: 1.2em;
+        }
+
+        /* Primary Button - Amber/Gold */
+        .btn--primary {
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
             color: #ffffff;
-            box-shadow: var(--shadow-cta);
+            box-shadow: var(--shadow-accent);
         }
 
-        [data-theme="dark"] .btn--call {
-            color: var(--color-bg-primary);
+        .btn--primary:hover,
+        .btn--primary:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(208, 157, 90, 0.45);
         }
 
-        .btn--call:hover,
-        .btn--call:focus {
-            background: var(--color-cta-call-hover);
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px var(--color-cta-call-glow);
-        }
-
+        /* WhatsApp Button */
         .btn--whatsapp {
             background: var(--color-whatsapp);
             color: #ffffff;
-            box-shadow: var(--shadow-whatsapp);
+            box-shadow: 0 6px 24px rgba(37, 211, 102, 0.3);
         }
 
         .btn--whatsapp:hover,
         .btn--whatsapp:focus {
             background: var(--color-whatsapp-hover);
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px var(--color-whatsapp-glow);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
         }
 
+        /* Outline Button */
         .btn--outline {
             background: transparent;
             border: 2px solid var(--color-border);
-            color: var(--color-text-primary);
+            color: var(--color-text);
         }
 
         .btn--outline:hover,
@@ -339,31 +350,16 @@
             color: var(--color-accent);
         }
 
+        /* Large Button Variant */
         .btn--large {
-            padding: 1.5rem 2.5rem;
-            font-size: var(--font-size-xl);
-            min-height: 72px;
+            padding: 1.375rem 2.5rem;
+            font-size: var(--text-xl);
+            min-height: 64px;
         }
 
+        /* Full Width */
         .btn--full {
             width: 100%;
-        }
-
-        .btn i {
-            font-size: 1.3em;
-        }
-
-        /* Hero CTA Buttons - Equal Priority */
-        .hero-cta {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-md);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .hero-cta .btn {
-            flex: 1;
         }
 
         /* ============================================
@@ -375,73 +371,89 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            background: var(--color-bg-secondary);
+            background: rgba(var(--color-bg-rgb), 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--color-border);
-            transition: background-color var(--transition-theme), border-color var(--transition-theme);
+            transition: background-color var(--transition-base), border-color var(--transition-base);
         }
 
         .header__inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: var(--spacing-sm) 0;
-            min-height: 70px;
+            height: var(--header-height);
         }
 
         /* Logo */
         .logo {
             display: flex;
             align-items: center;
-            gap: var(--spacing-sm);
-            font-family: var(--font-display);
-            font-size: var(--font-size-xl);
-            font-weight: 700;
-            color: var(--color-text-primary);
+            gap: var(--space-sm);
         }
 
         .logo__icon {
             width: 44px;
             height: 44px;
-            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
             border-radius: var(--radius-md);
             display: flex;
             align-items: center;
             justify-content: center;
             color: #ffffff;
-            font-size: var(--font-size-lg);
+            font-size: var(--text-lg);
+        }
+
+        .logo__text {
+            font-family: var(--font-display);
+            font-size: var(--text-xl);
+            font-weight: 700;
+            color: var(--color-text);
         }
 
         .logo__text span {
             color: var(--color-accent);
         }
 
-        /* Nav Controls */
+        /* Navigation Controls */
         .nav-controls {
             display: flex;
             align-items: center;
-            gap: var(--spacing-md);
+            gap: var(--space-md);
         }
 
-        /* Theme Toggle */
+        /* ============================================
+           THEME TOGGLE SWITCH
+           Animated toggle with sun/moon icons
+           Persists user choice in localStorage
+        ============================================ */
         .theme-toggle {
             display: flex;
             align-items: center;
             gap: 6px;
             padding: 6px 10px;
-            background: var(--color-bg-tertiary);
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
             border-radius: var(--radius-full);
             cursor: pointer;
-            transition: background-color var(--transition-theme);
+            transition: background-color var(--transition-base), border-color var(--transition-base);
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--color-accent);
         }
 
         .theme-toggle__icon {
-            font-size: 1rem;
-            color: var(--color-text-muted);
-            transition: color var(--transition-normal);
+            font-size: 0.9rem;
+            transition: color var(--transition-fast);
         }
 
         .theme-toggle__icon--sun {
-            color: #fbbf24;
+            color: var(--color-accent);
+        }
+
+        .theme-toggle__icon--moon {
+            color: var(--color-text-muted);
         }
 
         [data-theme="dark"] .theme-toggle__icon--sun {
@@ -453,12 +465,12 @@
         }
 
         .theme-toggle__switch {
-            width: 44px;
-            height: 24px;
+            width: 40px;
+            height: 22px;
             background: var(--color-border);
             border-radius: var(--radius-full);
             position: relative;
-            transition: background-color var(--transition-normal);
+            transition: background-color var(--transition-base);
         }
 
         .theme-toggle__switch::after {
@@ -466,74 +478,63 @@
             position: absolute;
             top: 3px;
             left: 3px;
-            width: 18px;
-            height: 18px;
-            background: #ffffff;
-            border-radius: 50%;
-            transition: transform var(--transition-normal);
-            box-shadow: var(--shadow-sm);
-        }
-
-        [data-theme="dark"] .theme-toggle__switch {
+            width: 16px;
+            height: 16px;
             background: var(--color-accent);
+            border-radius: 50%;
+            transition: transform var(--transition-base);
         }
 
         [data-theme="dark"] .theme-toggle__switch::after {
-            transform: translateX(20px);
+            transform: translateX(18px);
         }
 
-        /* Desktop Header CTA */
+        /* Desktop CTA Buttons in Header */
         .header__cta {
             display: none;
         }
 
         .header__cta-group {
             display: flex;
-            gap: var(--spacing-xs);
+            gap: var(--space-xs);
         }
 
-        .header__cta-btn {
+        .header__btn {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: var(--spacing-xs);
+            gap: 6px;
             padding: 10px 16px;
             border-radius: var(--radius-md);
-            font-family: var(--font-display);
-            font-size: var(--font-size-sm);
+            font-size: var(--text-sm);
             font-weight: 600;
             min-height: 44px;
-            transition: var(--transition-normal);
+            transition: all var(--transition-fast);
         }
 
-        .header__cta-btn--call {
-            background: var(--color-cta-call);
+        .header__btn--call {
+            background: var(--color-accent);
             color: #ffffff;
         }
 
-        [data-theme="dark"] .header__cta-btn--call {
-            color: var(--color-bg-primary);
+        .header__btn--call:hover {
+            background: var(--color-accent-hover);
         }
 
-        .header__cta-btn--call:hover {
-            background: var(--color-cta-call-hover);
-        }
-
-        .header__cta-btn--whatsapp {
+        .header__btn--whatsapp {
             background: var(--color-whatsapp);
             color: #ffffff;
         }
 
-        .header__cta-btn--whatsapp:hover {
+        .header__btn--whatsapp:hover {
             background: var(--color-whatsapp-hover);
         }
 
-        /* Mobile Toggle */
+        /* Mobile Menu Toggle */
         .mobile-toggle {
             display: flex;
             flex-direction: column;
             gap: 5px;
-            padding: var(--spacing-sm);
+            padding: var(--space-sm);
             cursor: pointer;
             min-width: 44px;
             min-height: 44px;
@@ -544,9 +545,9 @@
         .mobile-toggle__bar {
             width: 24px;
             height: 2.5px;
-            background: var(--color-text-primary);
+            background: var(--color-text);
             border-radius: 2px;
-            transition: var(--transition-normal);
+            transition: all var(--transition-base);
         }
 
         .mobile-toggle--active .mobile-toggle__bar:nth-child(1) {
@@ -561,18 +562,18 @@
             transform: rotate(-45deg) translate(5px, -5px);
         }
 
-        /* Mobile Navigation */
+        /* Mobile Navigation Panel */
         .mobile-nav {
             position: fixed;
-            top: 70px;
+            top: var(--header-height);
             left: 0;
             width: 100%;
-            height: calc(100vh - 70px);
-            background: var(--color-bg-secondary);
+            height: calc(100vh - var(--header-height));
+            background: var(--color-bg);
             z-index: 999;
-            padding: var(--spacing-lg);
+            padding: var(--space-lg);
             transform: translateX(-100%);
-            transition: transform var(--transition-normal), background-color var(--transition-theme);
+            transition: transform var(--transition-base), background-color var(--transition-base);
             overflow-y: auto;
         }
 
@@ -589,51 +590,47 @@
         .mobile-nav__link {
             display: flex;
             align-items: center;
-            gap: var(--spacing-sm);
-            padding: var(--spacing-md);
-            font-size: var(--font-size-base);
+            gap: var(--space-sm);
+            padding: var(--space-md);
+            font-size: var(--text-base);
             font-weight: 600;
-            color: var(--color-text-primary);
+            color: var(--color-text);
             border-radius: var(--radius-md);
             min-height: 52px;
-            transition: background-color var(--transition-fast);
+            transition: background-color var(--transition-fast), color var(--transition-fast);
         }
 
         .mobile-nav__link:hover,
         .mobile-nav__link:focus {
-            background: var(--color-bg-tertiary);
+            background: var(--color-surface);
             color: var(--color-accent);
         }
 
         .mobile-nav__link i {
-            width: 20px;
+            width: 24px;
             color: var(--color-accent);
         }
 
         .mobile-nav__cta {
-            margin-top: var(--spacing-lg);
+            margin-top: var(--space-lg);
             display: flex;
             flex-direction: column;
-            gap: var(--spacing-sm);
-        }
-
-        .mobile-nav__cta .btn {
-            width: 100%;
+            gap: var(--space-sm);
         }
 
         /* ============================================
-           HERO SECTION - Nightlife Focused
+           HERO SECTION
+           Primary call-to-action area
+           Large buttons for easy tapping
         ============================================ */
         .hero {
-            padding: 110px 0 var(--spacing-3xl);
+            padding: calc(var(--header-height) + var(--space-2xl)) 0 var(--space-3xl);
             text-align: center;
-            background: var(--color-bg-primary);
-            transition: background-color var(--transition-theme);
             position: relative;
             overflow: hidden;
         }
 
-        /* Subtle gradient overlay for nightlife feel */
+        /* Subtle warm gradient overlay */
         .hero::before {
             content: '';
             position: absolute;
@@ -641,7 +638,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(ellipse at top, var(--color-accent-glow) 0%, transparent 60%);
+            background: radial-gradient(ellipse at top, var(--color-accent-glow) 0%, transparent 50%);
             pointer-events: none;
         }
 
@@ -655,32 +652,31 @@
         .hero__badge {
             display: inline-flex;
             align-items: center;
-            gap: var(--spacing-xs);
-            background: var(--color-bg-card);
+            gap: var(--space-xs);
+            background: var(--color-surface);
             border: 1px solid var(--color-border-accent);
-            padding: var(--spacing-sm) var(--spacing-md);
+            padding: var(--space-sm) var(--space-md);
             border-radius: var(--radius-full);
-            font-size: var(--font-size-sm);
+            font-size: var(--text-sm);
             font-weight: 600;
             color: var(--color-accent);
-            margin-bottom: var(--spacing-lg);
-            transition: background-color var(--transition-theme), border-color var(--transition-theme);
+            margin-bottom: var(--space-lg);
+            transition: background-color var(--transition-base), border-color var(--transition-base);
         }
 
         .hero__badge i {
-            animation: pulse-dot 2s ease-in-out infinite;
+            animation: pulse-glow 2s ease-in-out infinite;
         }
 
-        @keyframes pulse-dot {
+        @keyframes pulse-glow {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
         }
 
         .hero__title {
-            font-size: var(--font-size-4xl);
-            line-height: 1.15;
-            margin-bottom: var(--spacing-md);
-            color: var(--color-text-primary);
+            font-size: var(--text-4xl);
+            line-height: 1.1;
+            margin-bottom: var(--space-md);
         }
 
         .hero__title span {
@@ -688,63 +684,66 @@
         }
 
         .hero__subtitle {
-            font-size: var(--font-size-xl);
+            font-size: var(--text-xl);
             color: var(--color-text-secondary);
-            margin-bottom: var(--spacing-lg);
+            margin-bottom: var(--space-lg);
             line-height: 1.5;
         }
 
         .hero__tagline {
             display: inline-flex;
             align-items: center;
-            gap: var(--spacing-sm);
-            font-size: var(--font-size-base);
+            gap: var(--space-sm);
+            font-size: var(--text-base);
             color: var(--color-text-muted);
-            margin-bottom: var(--spacing-xl);
-            padding: var(--spacing-sm) var(--spacing-md);
-            background: var(--color-bg-tertiary);
+            margin-bottom: var(--space-xl);
+            padding: var(--space-sm) var(--space-md);
+            background: var(--color-surface);
             border-radius: var(--radius-full);
-            transition: background-color var(--transition-theme);
+            transition: background-color var(--transition-base);
         }
 
         .hero__tagline i {
             color: var(--color-accent);
         }
 
-        /* Hero CTA container */
+        /* Hero CTA Buttons - Equal priority */
         .hero__cta {
-            margin-bottom: var(--spacing-xl);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-md);
+            max-width: 520px;
+            margin: 0 auto var(--space-xl);
         }
 
-        /* Trust indicators */
+        /* Trust Indicators */
         .hero__trust {
             display: flex;
             justify-content: center;
-            gap: var(--spacing-xl);
+            gap: var(--space-xl);
             flex-wrap: wrap;
-            padding-top: var(--spacing-lg);
+            padding-top: var(--space-lg);
             border-top: 1px solid var(--color-border);
-            transition: border-color var(--transition-theme);
         }
 
         .trust-item {
             display: flex;
             align-items: center;
-            gap: var(--spacing-sm);
+            gap: var(--space-sm);
         }
 
         .trust-item__icon {
-            width: 44px;
-            height: 44px;
-            background: var(--color-bg-card);
+            width: 48px;
+            height: 48px;
+            background: var(--color-surface);
             border: 1px solid var(--color-border);
             border-radius: var(--radius-md);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--color-accent);
-            font-size: var(--font-size-base);
-            transition: background-color var(--transition-theme), border-color var(--transition-theme);
+            font-size: var(--text-lg);
+            transition: background-color var(--transition-base), border-color var(--transition-base);
         }
 
         .trust-item__text {
@@ -754,30 +753,30 @@
         .trust-item__text strong {
             display: block;
             font-family: var(--font-display);
-            font-size: var(--font-size-lg);
-            color: var(--color-text-primary);
+            font-size: var(--text-lg);
+            color: var(--color-text);
         }
 
         .trust-item__text span {
-            font-size: var(--font-size-sm);
+            font-size: var(--text-sm);
             color: var(--color-text-muted);
         }
 
         /* ============================================
-           VALUE PROPOSITION STRIP
+           VALUE STRIP
         ============================================ */
         .value-strip {
-            background: var(--color-bg-tertiary);
-            padding: var(--spacing-lg) 0;
+            background: var(--color-surface);
+            padding: var(--space-lg) 0;
             border-top: 1px solid var(--color-border);
             border-bottom: 1px solid var(--color-border);
-            transition: background-color var(--transition-theme), border-color var(--transition-theme);
+            transition: background-color var(--transition-base), border-color var(--transition-base);
         }
 
         .value-strip__grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: var(--spacing-md);
+            gap: var(--space-md);
             text-align: center;
         }
 
@@ -785,31 +784,31 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: var(--spacing-xs);
+            gap: var(--space-xs);
         }
 
         .value-strip__icon {
-            width: 48px;
-            height: 48px;
+            width: 52px;
+            height: 52px;
             background: var(--color-accent-glow);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--color-accent);
-            font-size: var(--font-size-lg);
-            margin-bottom: var(--spacing-xs);
+            font-size: var(--text-lg);
+            margin-bottom: var(--space-xs);
         }
 
         .value-strip__title {
             font-family: var(--font-display);
-            font-size: var(--font-size-base);
+            font-size: var(--text-base);
             font-weight: 700;
-            color: var(--color-text-primary);
+            color: var(--color-text);
         }
 
         .value-strip__desc {
-            font-size: var(--font-size-sm);
+            font-size: var(--text-sm);
             color: var(--color-text-muted);
         }
 
@@ -819,17 +818,27 @@
         .services__grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: var(--spacing-lg);
+            gap: var(--space-lg);
         }
 
         .service-card {
-            background: var(--color-bg-card);
+            background: var(--color-surface);
             border: 1px solid var(--color-border);
-            border-radius: var(--radius-lg);
-            padding: var(--spacing-xl);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
             text-align: center;
-            transition: transform var(--transition-normal), box-shadow var(--transition-normal),
-                        background-color var(--transition-theme), border-color var(--transition-theme);
+            box-shadow: var(--shadow-card);
+            transition: transform var(--transition-base), box-shadow var(--transition-base),
+                        background-color var(--transition-base), border-color var(--transition-base);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--card-highlight);
+            pointer-events: none;
         }
 
         .service-card:hover {
@@ -839,51 +848,49 @@
         }
 
         .service-card__icon {
-            width: 64px;
-            height: 64px;
-            background: var(--color-accent-glow);
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, var(--color-accent-glow) 0%, transparent 100%);
+            border: 1px solid var(--color-border-accent);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto var(--spacing-md);
-            transition: background-color var(--transition-theme);
+            margin: 0 auto var(--space-md);
         }
 
         .service-card__icon i {
-            font-size: var(--font-size-2xl);
+            font-size: var(--text-2xl);
             color: var(--color-accent);
         }
 
         .service-card__title {
-            font-size: var(--font-size-xl);
-            margin-bottom: var(--spacing-sm);
-            color: var(--color-text-primary);
+            font-size: var(--text-xl);
+            margin-bottom: var(--space-sm);
         }
 
         .service-card__desc {
             color: var(--color-text-muted);
-            font-size: var(--font-size-base);
+            font-size: var(--text-base);
             line-height: 1.6;
         }
 
         /* ============================================
-           HOW IT WORKS SECTION
+           HOW IT WORKS
         ============================================ */
         .steps__grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: var(--spacing-lg);
+            gap: var(--space-lg);
             position: relative;
         }
 
-        /* Connector line */
         .steps__grid::before {
             content: '';
             position: absolute;
             top: 40px;
-            left: 20%;
-            right: 20%;
+            left: 15%;
+            right: 15%;
             height: 2px;
             background: var(--color-border-accent);
             z-index: 0;
@@ -891,46 +898,41 @@
 
         .step-card {
             text-align: center;
-            padding: var(--spacing-md);
+            padding: var(--space-md);
             position: relative;
             z-index: 1;
         }
 
         .step-card__number {
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto var(--spacing-md);
+            margin: 0 auto var(--space-md);
             font-family: var(--font-display);
-            font-size: var(--font-size-xl);
+            font-size: var(--text-2xl);
             font-weight: 700;
             color: #ffffff;
-            box-shadow: var(--shadow-cta);
-        }
-
-        [data-theme="dark"] .step-card__number {
-            color: var(--color-bg-primary);
+            box-shadow: var(--shadow-accent);
         }
 
         .step-card__icon {
-            font-size: var(--font-size-2xl);
+            font-size: var(--text-2xl);
             color: var(--color-accent);
-            margin-bottom: var(--spacing-sm);
+            margin-bottom: var(--space-sm);
         }
 
         .step-card__title {
-            font-size: var(--font-size-lg);
-            margin-bottom: var(--spacing-xs);
-            color: var(--color-text-primary);
+            font-size: var(--text-lg);
+            margin-bottom: var(--space-xs);
         }
 
         .step-card__desc {
             color: var(--color-text-muted);
-            font-size: var(--font-size-base);
+            font-size: var(--text-base);
         }
 
         /* ============================================
@@ -939,103 +941,111 @@
         .pricing__card {
             max-width: 480px;
             margin: 0 auto;
-            background: var(--color-bg-card);
+            background: var(--color-surface);
             border: 2px solid var(--color-accent);
             border-radius: var(--radius-xl);
-            padding: var(--spacing-2xl);
+            padding: var(--space-2xl);
             text-align: center;
-            transition: background-color var(--transition-theme), border-color var(--transition-theme);
+            box-shadow: var(--shadow-card);
+            position: relative;
+            overflow: hidden;
+            transition: background-color var(--transition-base), border-color var(--transition-base);
+        }
+
+        .pricing__card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
         }
 
         .pricing__badge {
             display: inline-block;
-            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
             color: #ffffff;
-            padding: var(--spacing-xs) var(--spacing-md);
+            padding: var(--space-xs) var(--space-md);
             border-radius: var(--radius-full);
-            font-family: var(--font-display);
-            font-size: var(--font-size-sm);
+            font-size: var(--text-sm);
             font-weight: 700;
-            margin-bottom: var(--spacing-lg);
-        }
-
-        [data-theme="dark"] .pricing__badge {
-            color: var(--color-bg-primary);
+            margin-bottom: var(--space-lg);
         }
 
         .pricing__amount {
             font-family: var(--font-display);
-            font-size: var(--font-size-5xl);
+            font-size: var(--text-5xl);
             font-weight: 700;
-            color: var(--color-text-primary);
+            color: var(--color-text);
             margin-bottom: 4px;
         }
 
         .pricing__amount span {
-            font-size: var(--font-size-lg);
+            font-size: var(--text-lg);
             color: var(--color-text-muted);
             font-weight: 500;
         }
 
         .pricing__note {
             color: var(--color-text-muted);
-            font-size: var(--font-size-base);
-            margin-bottom: var(--spacing-lg);
+            font-size: var(--text-base);
+            margin-bottom: var(--space-lg);
         }
 
         .pricing__features {
             text-align: left;
-            margin-bottom: var(--spacing-lg);
+            margin-bottom: var(--space-lg);
         }
 
         .pricing__feature {
             display: flex;
             align-items: center;
-            gap: var(--spacing-sm);
-            padding: var(--spacing-sm) var(--spacing-md);
-            background: var(--color-bg-tertiary);
+            gap: var(--space-sm);
+            padding: var(--space-sm) var(--space-md);
+            background: var(--color-surface-elevated);
             border-radius: var(--radius-md);
-            margin-bottom: var(--spacing-sm);
-            font-size: var(--font-size-base);
+            margin-bottom: var(--space-sm);
+            font-size: var(--text-base);
             color: var(--color-text-secondary);
-            transition: background-color var(--transition-theme);
+            transition: background-color var(--transition-base);
         }
 
         .pricing__feature i {
             color: var(--color-accent);
-            font-size: var(--font-size-lg);
+            font-size: var(--text-lg);
             width: 24px;
         }
 
         .pricing__feature strong {
-            color: var(--color-text-primary);
+            color: var(--color-text);
         }
 
         .pricing__cta {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-sm);
-            margin-bottom: var(--spacing-md);
+            gap: var(--space-sm);
+            margin-bottom: var(--space-md);
         }
 
         .pricing__cta .btn {
             padding: 1rem;
-            font-size: var(--font-size-base);
-            min-height: 56px;
+            font-size: var(--text-base);
+            min-height: 52px;
         }
 
         .pricing__disclaimer {
-            font-size: var(--font-size-sm);
+            font-size: var(--text-sm);
             color: var(--color-text-muted);
-            padding: var(--spacing-md);
-            background: var(--color-bg-tertiary);
+            padding: var(--space-md);
+            background: var(--color-surface-elevated);
             border-radius: var(--radius-md);
-            transition: background-color var(--transition-theme);
+            transition: background-color var(--transition-base);
         }
 
         .pricing__disclaimer i {
             color: var(--color-accent);
-            margin-right: var(--spacing-xs);
+            margin-right: var(--space-xs);
         }
 
         /* ============================================
@@ -1044,14 +1054,13 @@
         .coverage__content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-2xl);
+            gap: var(--space-2xl);
             align-items: center;
         }
 
         .coverage__info h3 {
-            font-size: var(--font-size-2xl);
-            margin-bottom: var(--spacing-md);
-            color: var(--color-text-primary);
+            font-size: var(--text-2xl);
+            margin-bottom: var(--space-md);
         }
 
         .coverage__info h3 span {
@@ -1061,21 +1070,21 @@
         .coverage__areas {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-sm);
-            margin-bottom: var(--spacing-lg);
+            gap: var(--space-sm);
+            margin-bottom: var(--space-lg);
         }
 
         .coverage__area {
             display: flex;
             align-items: center;
-            gap: var(--spacing-xs);
-            padding: var(--spacing-sm) var(--spacing-md);
-            background: var(--color-bg-card);
+            gap: var(--space-xs);
+            padding: var(--space-sm) var(--space-md);
+            background: var(--color-surface);
             border: 1px solid var(--color-border);
             border-radius: var(--radius-md);
-            font-size: var(--font-size-sm);
+            font-size: var(--text-sm);
             color: var(--color-text-secondary);
-            transition: background-color var(--transition-theme), border-color var(--transition-theme);
+            transition: background-color var(--transition-base), border-color var(--transition-base);
         }
 
         .coverage__area i {
@@ -1085,8 +1094,8 @@
         .coverage__note {
             display: flex;
             align-items: flex-start;
-            gap: var(--spacing-sm);
-            padding: var(--spacing-md);
+            gap: var(--space-sm);
+            padding: var(--space-md);
             background: var(--color-accent-glow);
             border-radius: var(--radius-md);
             border-left: 4px solid var(--color-accent);
@@ -1094,24 +1103,24 @@
 
         .coverage__note i {
             color: var(--color-accent);
-            font-size: var(--font-size-lg);
+            font-size: var(--text-lg);
             margin-top: 2px;
         }
 
         .coverage__note p {
             color: var(--color-text-secondary);
-            font-size: var(--font-size-base);
+            font-size: var(--text-base);
         }
 
         .coverage__note strong {
-            color: var(--color-text-primary);
+            color: var(--color-text);
         }
 
         .coverage__map {
             border-radius: var(--radius-xl);
             overflow: hidden;
             border: 1px solid var(--color-border);
-            transition: border-color var(--transition-theme);
+            transition: border-color var(--transition-base);
         }
 
         .coverage__map iframe {
@@ -1121,125 +1130,103 @@
         }
 
         /* ============================================
-           NIGHTLIFE PARTNERS SECTION
+           WHY CHOOSE US / SAFETY
         ============================================ */
-        .partners {
-            background: linear-gradient(135deg, var(--color-bg-tertiary) 0%, var(--color-bg-secondary) 100%);
-            position: relative;
-            overflow: hidden;
+        .safety__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
         }
 
-        .partners::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at bottom right, var(--color-accent-glow) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .partners__content {
-            position: relative;
-            z-index: 1;
+        .safety-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
             text-align: center;
-            max-width: 700px;
-            margin: 0 auto;
+            box-shadow: var(--shadow-card);
+            transition: transform var(--transition-base), box-shadow var(--transition-base),
+                        background-color var(--transition-base), border-color var(--transition-base);
         }
 
-        .partners__icon {
-            width: 80px;
-            height: 80px;
-            background: var(--color-accent-glow);
-            border: 2px solid var(--color-border-accent);
+        .safety-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-border-accent);
+        }
+
+        .safety-card__icon {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, var(--color-accent-glow) 0%, transparent 100%);
+            border: 1px solid var(--color-border-accent);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto var(--spacing-lg);
+            margin: 0 auto var(--space-md);
         }
 
-        .partners__icon i {
-            font-size: var(--font-size-3xl);
+        .safety-card__icon i {
+            font-size: var(--text-2xl);
             color: var(--color-accent);
         }
 
-        .partners__title {
-            font-size: var(--font-size-2xl);
-            margin-bottom: var(--spacing-sm);
-            color: var(--color-text-primary);
+        .safety-card__title {
+            font-size: var(--text-lg);
+            margin-bottom: var(--space-sm);
         }
 
-        .partners__title span {
-            color: var(--color-accent);
-        }
-
-        .partners__desc {
-            font-size: var(--font-size-lg);
+        .safety-card__desc {
             color: var(--color-text-muted);
-            margin-bottom: var(--spacing-xl);
+            font-size: var(--text-base);
+            line-height: 1.6;
         }
 
-        .partners__placeholders {
-            display: flex;
-            justify-content: center;
-            gap: var(--spacing-md);
-            flex-wrap: wrap;
-            margin-bottom: var(--spacing-xl);
-        }
-
-        .partner-placeholder {
-            width: 140px;
-            height: 70px;
-            background: var(--color-bg-card);
-            border: 2px dashed var(--color-border);
-            border-radius: var(--radius-md);
+        .safety__highlight {
+            margin-top: var(--space-2xl);
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--color-text-muted);
-            font-size: var(--font-size-sm);
-            font-weight: 600;
-            transition: background-color var(--transition-theme), border-color var(--transition-theme);
+            gap: var(--space-2xl);
+            color: #ffffff;
         }
 
-        .partners__contact {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--spacing-sm);
-            padding: var(--spacing-md) var(--spacing-lg);
-            background: var(--color-bg-card);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-lg);
-            color: var(--color-text-secondary);
-            font-size: var(--font-size-base);
-            transition: background-color var(--transition-theme), border-color var(--transition-theme);
+        .safety__highlight-item {
+            text-align: center;
         }
 
-        .partners__contact i {
-            color: var(--color-accent);
+        .safety__highlight-number {
+            font-family: var(--font-display);
+            font-size: var(--text-4xl);
+            font-weight: 700;
+            display: block;
         }
 
-        .partners__contact strong {
-            color: var(--color-text-primary);
+        .safety__highlight-label {
+            font-size: var(--text-sm);
+            opacity: 0.9;
         }
 
         /* ============================================
-           TESTIMONIALS SECTION
+           TESTIMONIALS
         ============================================ */
         .testimonials__grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: var(--spacing-lg);
+            gap: var(--space-lg);
         }
 
         .testimonial-card {
-            background: var(--color-bg-card);
+            background: var(--color-surface);
             border: 1px solid var(--color-border);
-            border-radius: var(--radius-lg);
-            padding: var(--spacing-xl);
-            transition: background-color var(--transition-theme), border-color var(--transition-theme);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-card);
+            transition: background-color var(--transition-base), border-color var(--transition-base);
         }
 
         .testimonial-card:hover {
@@ -1247,55 +1234,54 @@
         }
 
         .testimonial-card__stars {
-            color: #fbbf24;
-            font-size: var(--font-size-base);
-            margin-bottom: var(--spacing-sm);
+            color: var(--color-accent);
+            font-size: var(--text-base);
+            margin-bottom: var(--space-sm);
         }
 
         .testimonial-card__quote {
             color: var(--color-text-secondary);
-            font-size: var(--font-size-base);
+            font-size: var(--text-base);
             font-style: italic;
-            margin-bottom: var(--spacing-lg);
+            margin-bottom: var(--space-lg);
             line-height: 1.7;
         }
 
         .testimonial-card__author {
             display: flex;
             align-items: center;
-            gap: var(--spacing-sm);
+            gap: var(--space-sm);
         }
 
         .testimonial-card__avatar {
-            width: 44px;
-            height: 44px;
-            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: var(--font-display);
             font-weight: 700;
+            font-size: var(--text-lg);
             color: #ffffff;
-        }
-
-        [data-theme="dark"] .testimonial-card__avatar {
-            color: var(--color-bg-primary);
         }
 
         .testimonial-card__name {
             font-family: var(--font-display);
             font-weight: 700;
-            color: var(--color-text-primary);
+            color: var(--color-text);
         }
 
         .testimonial-card__location {
-            font-size: var(--font-size-sm);
+            font-size: var(--text-sm);
             color: var(--color-text-muted);
         }
 
         /* ============================================
-           FAQ SECTION
+           FAQ ACCORDION
+           Collapsible sections for legal info
+           Click to expand/collapse answers
         ============================================ */
         .faq__container {
             max-width: 750px;
@@ -1303,12 +1289,12 @@
         }
 
         .faq-item {
-            background: var(--color-bg-card);
+            background: var(--color-surface);
             border: 1px solid var(--color-border);
-            border-radius: var(--radius-md);
-            margin-bottom: var(--spacing-sm);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-sm);
             overflow: hidden;
-            transition: background-color var(--transition-theme), border-color var(--transition-theme);
+            transition: background-color var(--transition-base), border-color var(--transition-base);
         }
 
         .faq-item:hover {
@@ -1320,11 +1306,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: var(--spacing-md) var(--spacing-lg);
-            font-family: var(--font-display);
-            font-size: var(--font-size-base);
+            padding: var(--space-md) var(--space-lg);
+            font-family: var(--font-body);
+            font-size: var(--text-base);
             font-weight: 600;
-            color: var(--color-text-primary);
+            color: var(--color-text);
             cursor: pointer;
             text-align: left;
             min-height: 60px;
@@ -1337,7 +1323,7 @@
 
         .faq-item__question i {
             color: var(--color-accent);
-            transition: transform var(--transition-normal);
+            transition: transform var(--transition-base);
         }
 
         .faq-item--active .faq-item__question i {
@@ -1347,34 +1333,33 @@
         .faq-item__answer {
             max-height: 0;
             overflow: hidden;
-            transition: max-height var(--transition-normal);
+            transition: max-height var(--transition-base);
         }
 
         .faq-item--active .faq-item__answer {
-            max-height: 400px;
+            max-height: 500px;
         }
 
         .faq-item__answer-inner {
-            padding: 0 var(--spacing-lg) var(--spacing-lg);
+            padding: 0 var(--space-lg) var(--space-lg);
             color: var(--color-text-secondary);
             line-height: 1.7;
-            font-size: var(--font-size-base);
+            font-size: var(--text-base);
         }
 
         /* ============================================
-           DRIVER RECRUITMENT SECTION
+           BECOME A DRIVER
         ============================================ */
         .recruitment__content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-2xl);
+            gap: var(--space-2xl);
             align-items: center;
         }
 
         .recruitment__info h3 {
-            font-size: var(--font-size-2xl);
-            margin-bottom: var(--spacing-md);
-            color: var(--color-text-primary);
+            font-size: var(--text-2xl);
+            margin-bottom: var(--space-md);
         }
 
         .recruitment__info h3 span {
@@ -1383,49 +1368,48 @@
 
         .recruitment__info > p {
             color: var(--color-text-secondary);
-            font-size: var(--font-size-base);
-            margin-bottom: var(--spacing-lg);
+            font-size: var(--text-base);
+            margin-bottom: var(--space-lg);
         }
 
         .recruitment__requirements h4 {
-            font-size: var(--font-size-base);
+            font-size: var(--text-base);
             font-weight: 600;
-            margin-bottom: var(--spacing-sm);
-            color: var(--color-text-primary);
+            margin-bottom: var(--space-sm);
         }
 
         .recruitment__requirement {
             display: flex;
             align-items: center;
-            gap: var(--spacing-xs);
-            padding: var(--spacing-xs) 0;
+            gap: var(--space-xs);
+            padding: var(--space-xs) 0;
             color: var(--color-text-secondary);
-            font-size: var(--font-size-base);
+            font-size: var(--text-base);
         }
 
         .recruitment__requirement i {
             color: var(--color-accent);
-            width: 18px;
+            width: 20px;
         }
 
         .recruitment__contact {
             display: flex;
             flex-direction: column;
-            gap: var(--spacing-sm);
-            margin-top: var(--spacing-lg);
+            gap: var(--space-sm);
+            margin-top: var(--space-lg);
         }
 
         .recruitment__contact-item {
             display: flex;
             align-items: center;
-            gap: var(--spacing-sm);
-            padding: var(--spacing-sm) var(--spacing-md);
-            background: var(--color-bg-card);
+            gap: var(--space-sm);
+            padding: var(--space-sm) var(--space-md);
+            background: var(--color-surface);
             border: 1px solid var(--color-border);
             border-radius: var(--radius-md);
-            font-size: var(--font-size-sm);
+            font-size: var(--text-sm);
             color: var(--color-text-secondary);
-            transition: background-color var(--transition-theme), border-color var(--transition-theme);
+            transition: background-color var(--transition-base), border-color var(--transition-base);
         }
 
         .recruitment__contact-item:hover {
@@ -1437,63 +1421,63 @@
         }
 
         .recruitment__contact-item strong {
-            color: var(--color-text-primary);
+            color: var(--color-text);
         }
 
         .recruitment__card {
-            background: var(--color-bg-card);
+            background: var(--color-surface);
             border: 1px solid var(--color-border);
             border-radius: var(--radius-xl);
-            padding: var(--spacing-2xl);
+            padding: var(--space-2xl);
             text-align: center;
-            transition: background-color var(--transition-theme), border-color var(--transition-theme);
+            box-shadow: var(--shadow-card);
+            transition: background-color var(--transition-base), border-color var(--transition-base);
         }
 
         .recruitment__card-icon {
-            width: 72px;
-            height: 72px;
+            width: 80px;
+            height: 80px;
             background: var(--color-accent-glow);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto var(--spacing-md);
+            margin: 0 auto var(--space-md);
         }
 
         .recruitment__card-icon i {
-            font-size: var(--font-size-3xl);
+            font-size: var(--text-3xl);
             color: var(--color-accent);
         }
 
         .recruitment__card h4 {
-            font-size: var(--font-size-xl);
-            margin-bottom: var(--spacing-sm);
-            color: var(--color-text-primary);
+            font-size: var(--text-xl);
+            margin-bottom: var(--space-sm);
         }
 
         .recruitment__card > p {
             color: var(--color-text-muted);
-            margin-bottom: var(--spacing-lg);
-            font-size: var(--font-size-base);
+            margin-bottom: var(--space-lg);
+            font-size: var(--text-base);
         }
 
         .recruitment__benefits {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: var(--spacing-xs);
+            gap: var(--space-xs);
         }
 
         .recruitment__benefit {
             display: inline-flex;
             align-items: center;
             gap: 4px;
-            background: var(--color-bg-tertiary);
+            background: var(--color-surface-elevated);
             padding: 6px 12px;
             border-radius: var(--radius-full);
-            font-size: var(--font-size-sm);
+            font-size: var(--text-sm);
             color: var(--color-text-secondary);
-            transition: background-color var(--transition-theme);
+            transition: background-color var(--transition-base);
         }
 
         .recruitment__benefit i {
@@ -1504,16 +1488,11 @@
            CONTACT CTA SECTION
         ============================================ */
         .contact-cta {
-            background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
-            padding: var(--spacing-3xl) 0;
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
+            padding: var(--space-3xl) 0;
             text-align: center;
             position: relative;
             overflow: hidden;
-        }
-
-        [data-theme="dark"] .contact-cta {
-            background: var(--color-bg-secondary);
-            border-top: 1px solid var(--color-border);
         }
 
         .contact-cta::before {
@@ -1523,7 +1502,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, transparent 60%);
+            background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 60%);
             pointer-events: none;
         }
 
@@ -1533,61 +1512,66 @@
         }
 
         .contact-cta__title {
-            font-size: var(--font-size-3xl);
+            font-size: var(--text-3xl);
             color: #ffffff;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        [data-theme="dark"] .contact-cta__title {
-            color: var(--color-text-primary);
+            margin-bottom: var(--space-sm);
         }
 
         .contact-cta__subtitle {
-            font-size: var(--font-size-xl);
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: var(--spacing-xl);
-        }
-
-        [data-theme="dark"] .contact-cta__subtitle {
-            color: var(--color-text-muted);
+            font-size: var(--text-xl);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: var(--space-xl);
         }
 
         .contact-cta__buttons {
             display: flex;
             justify-content: center;
-            gap: var(--spacing-md);
+            gap: var(--space-md);
             flex-wrap: wrap;
-            margin-bottom: var(--spacing-lg);
+            margin-bottom: var(--space-lg);
+        }
+
+        .contact-cta__buttons .btn {
+            background: #ffffff;
+            color: var(--color-accent-hover);
+        }
+
+        .contact-cta__buttons .btn:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-2px);
+        }
+
+        .contact-cta__buttons .btn--whatsapp {
+            background: var(--color-whatsapp);
+            color: #ffffff;
         }
 
         .contact-cta__info {
             display: flex;
             justify-content: center;
-            gap: var(--spacing-xl);
+            gap: var(--space-xl);
             flex-wrap: wrap;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: var(--font-size-base);
-        }
-
-        [data-theme="dark"] .contact-cta__info {
-            color: var(--color-text-muted);
+            color: rgba(255, 255, 255, 0.85);
+            font-size: var(--text-base);
         }
 
         .contact-cta__info span i {
-            margin-right: var(--spacing-xs);
+            margin-right: var(--space-xs);
         }
 
         /* ============================================
            FLOATING CONTACT BUTTONS (Desktop)
+           Always visible for quick access
+           Positioned bottom-right
         ============================================ */
         .floating-btns {
             position: fixed;
-            bottom: var(--spacing-lg);
-            right: var(--spacing-lg);
+            bottom: var(--space-lg);
+            right: var(--space-lg);
             z-index: 900;
             display: flex;
             flex-direction: column;
-            gap: var(--spacing-sm);
+            gap: var(--space-sm);
         }
 
         .floating-btn {
@@ -1600,7 +1584,7 @@
             font-size: 1.5rem;
             color: #ffffff;
             box-shadow: var(--shadow-lg);
-            transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+            transition: transform var(--transition-base), box-shadow var(--transition-base);
         }
 
         .floating-btn:hover,
@@ -1609,21 +1593,17 @@
         }
 
         .floating-btn--call {
-            background: var(--color-cta-call);
-            animation: pulse-float 2.5s ease-in-out infinite;
-        }
-
-        [data-theme="dark"] .floating-btn--call {
-            color: var(--color-bg-primary);
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
+            animation: pulse-ring 2.5s ease-in-out infinite;
         }
 
         .floating-btn--whatsapp {
             background: var(--color-whatsapp);
         }
 
-        @keyframes pulse-float {
+        @keyframes pulse-ring {
             0%, 100% {
-                box-shadow: 0 0 0 0 var(--color-cta-call-glow);
+                box-shadow: 0 0 0 0 var(--color-accent-glow);
             }
             50% {
                 box-shadow: 0 0 0 12px transparent;
@@ -1632,6 +1612,8 @@
 
         /* ============================================
            STICKY BOTTOM BAR (Mobile)
+           Fixed at bottom for thumb-friendly access
+           Two equal buttons: Call + WhatsApp
         ============================================ */
         .sticky-bar {
             display: none;
@@ -1639,40 +1621,36 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            background: var(--color-bg-secondary);
+            background: var(--color-surface);
             border-top: 1px solid var(--color-border);
-            padding: var(--spacing-sm);
+            padding: var(--space-sm);
             z-index: 950;
-            transition: background-color var(--transition-theme), border-color var(--transition-theme);
+            transition: background-color var(--transition-base), border-color var(--transition-base);
         }
 
         .sticky-bar__inner {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-sm);
+            gap: var(--space-sm);
         }
 
         .sticky-bar__btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: var(--spacing-xs);
-            padding: var(--spacing-md);
-            border-radius: var(--radius-md);
-            font-family: var(--font-display);
-            font-size: var(--font-size-base);
+            gap: var(--space-xs);
+            padding: var(--space-md);
+            border-radius: var(--radius-lg);
+            font-family: var(--font-body);
+            font-size: var(--text-base);
             font-weight: 700;
             color: #ffffff;
-            min-height: 52px;
-            transition: var(--transition-normal);
+            min-height: 56px;
+            transition: all var(--transition-fast);
         }
 
         .sticky-bar__btn--call {
-            background: var(--color-cta-call);
-        }
-
-        [data-theme="dark"] .sticky-bar__btn--call {
-            color: var(--color-bg-primary);
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
         }
 
         .sticky-bar__btn--whatsapp {
@@ -1687,45 +1665,45 @@
            FOOTER
         ============================================ */
         .footer {
-            background: var(--color-bg-secondary);
-            padding: var(--spacing-2xl) 0 var(--spacing-lg);
+            background: var(--color-surface);
+            padding: var(--space-2xl) 0 var(--space-lg);
             border-top: 1px solid var(--color-border);
-            transition: background-color var(--transition-theme), border-color var(--transition-theme);
+            transition: background-color var(--transition-base), border-color var(--transition-base);
         }
 
         .footer__grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1.5fr;
-            gap: var(--spacing-2xl);
-            margin-bottom: var(--spacing-2xl);
+            gap: var(--space-2xl);
+            margin-bottom: var(--space-2xl);
         }
 
         .footer__brand .logo {
-            margin-bottom: var(--spacing-md);
+            margin-bottom: var(--space-md);
         }
 
         .footer__brand > p {
             color: var(--color-text-muted);
-            margin-bottom: var(--spacing-lg);
-            font-size: var(--font-size-sm);
+            margin-bottom: var(--space-lg);
+            font-size: var(--text-sm);
             line-height: 1.7;
         }
 
         .footer__social {
             display: flex;
-            gap: var(--spacing-sm);
+            gap: var(--space-sm);
         }
 
         .footer__social a {
-            width: 40px;
-            height: 40px;
-            background: var(--color-bg-tertiary);
+            width: 44px;
+            height: 44px;
+            background: var(--color-surface-elevated);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--color-text-muted);
-            transition: background-color var(--transition-normal), color var(--transition-normal);
+            transition: background-color var(--transition-base), color var(--transition-base);
         }
 
         .footer__social a:hover {
@@ -1733,27 +1711,23 @@
             color: #ffffff;
         }
 
-        [data-theme="dark"] .footer__social a:hover {
-            color: var(--color-bg-primary);
-        }
-
         .footer__credentials {
-            margin-top: var(--spacing-lg);
-            padding-top: var(--spacing-md);
+            margin-top: var(--space-lg);
+            padding-top: var(--space-md);
             border-top: 1px solid var(--color-border);
         }
 
         .footer__credentials-title {
-            font-size: var(--font-size-sm);
+            font-size: var(--text-sm);
             font-weight: 600;
             color: var(--color-text-muted);
-            margin-bottom: var(--spacing-xs);
+            margin-bottom: var(--space-xs);
         }
 
         .footer__credentials-list {
             display: flex;
             flex-wrap: wrap;
-            gap: var(--spacing-sm);
+            gap: var(--space-sm);
         }
 
         .footer__credential {
@@ -1762,7 +1736,7 @@
             gap: 4px;
             font-size: 0.8rem;
             color: var(--color-text-light);
-            background: var(--color-bg-tertiary);
+            background: var(--color-surface-elevated);
             padding: 4px 8px;
             border-radius: var(--radius-sm);
         }
@@ -1772,19 +1746,19 @@
         }
 
         .footer__links h4 {
-            font-size: var(--font-size-sm);
+            font-family: var(--font-body);
+            font-size: var(--text-sm);
             font-weight: 700;
-            margin-bottom: var(--spacing-md);
-            color: var(--color-text-primary);
+            margin-bottom: var(--space-md);
         }
 
         .footer__links ul li {
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
 
         .footer__links ul li a {
             color: var(--color-text-muted);
-            font-size: var(--font-size-sm);
+            font-size: var(--text-sm);
         }
 
         .footer__links ul li a:hover {
@@ -1794,8 +1768,8 @@
         .footer__contact-item {
             display: flex;
             align-items: flex-start;
-            gap: var(--spacing-xs);
-            margin-bottom: var(--spacing-xs);
+            gap: var(--space-xs);
+            margin-bottom: var(--space-xs);
         }
 
         .footer__contact-item i {
@@ -1806,33 +1780,33 @@
 
         .footer__contact-item p {
             color: var(--color-text-muted);
-            font-size: var(--font-size-sm);
+            font-size: var(--text-sm);
         }
 
         .footer__bottom {
             border-top: 1px solid var(--color-border);
-            padding-top: var(--spacing-lg);
+            padding-top: var(--space-lg);
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: var(--spacing-md);
+            gap: var(--space-md);
         }
 
         .footer__bottom p {
             color: var(--color-text-muted);
-            font-size: var(--font-size-sm);
+            font-size: var(--text-sm);
         }
 
         .footer__legal {
             display: flex;
-            gap: var(--spacing-md);
+            gap: var(--space-md);
             flex-wrap: wrap;
         }
 
         .footer__legal button {
             color: var(--color-text-muted);
-            font-size: var(--font-size-sm);
+            font-size: var(--text-sm);
             background: none;
             border: none;
             cursor: pointer;
@@ -1857,11 +1831,11 @@
             z-index: 3000;
             opacity: 0;
             visibility: hidden;
-            transition: var(--transition-normal);
+            transition: all var(--transition-base);
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: var(--spacing-md);
+            padding: var(--space-md);
         }
 
         .modal-overlay--active {
@@ -1870,14 +1844,14 @@
         }
 
         .modal {
-            background: var(--color-bg-secondary);
+            background: var(--color-surface);
             border-radius: var(--radius-xl);
             max-width: 550px;
             width: 100%;
             max-height: 80vh;
             overflow-y: auto;
             transform: scale(0.95);
-            transition: transform var(--transition-normal), background-color var(--transition-theme);
+            transition: transform var(--transition-base), background-color var(--transition-base);
         }
 
         .modal-overlay--active .modal {
@@ -1888,21 +1862,20 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: var(--spacing-md) var(--spacing-lg);
+            padding: var(--space-md) var(--space-lg);
             border-bottom: 1px solid var(--color-border);
             position: sticky;
             top: 0;
-            background: var(--color-bg-secondary);
+            background: var(--color-surface);
             z-index: 1;
         }
 
         .modal__title {
-            font-size: var(--font-size-lg);
+            font-size: var(--text-lg);
             font-weight: 700;
             display: flex;
             align-items: center;
-            gap: var(--spacing-sm);
-            color: var(--color-text-primary);
+            gap: var(--space-sm);
         }
 
         .modal__title i {
@@ -1910,9 +1883,9 @@
         }
 
         .modal__close {
-            width: 40px;
-            height: 40px;
-            background: var(--color-bg-tertiary);
+            width: 44px;
+            height: 44px;
+            background: var(--color-surface-elevated);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -1927,39 +1900,34 @@
             color: #ffffff;
         }
 
-        [data-theme="dark"] .modal__close:hover {
-            color: var(--color-bg-primary);
-        }
-
         .modal__body {
-            padding: var(--spacing-lg);
+            padding: var(--space-lg);
         }
 
         .modal__body h4 {
-            font-size: var(--font-size-base);
+            font-size: var(--text-base);
             font-weight: 600;
-            margin-bottom: var(--spacing-xs);
-            color: var(--color-text-primary);
+            margin-bottom: var(--space-xs);
         }
 
         .modal__body p {
             color: var(--color-text-secondary);
             line-height: 1.7;
-            margin-bottom: var(--spacing-md);
-            font-size: var(--font-size-sm);
+            margin-bottom: var(--space-md);
+            font-size: var(--text-sm);
         }
 
         .modal__body ul {
-            margin-bottom: var(--spacing-md);
-            padding-left: var(--spacing-sm);
+            margin-bottom: var(--space-md);
+            padding-left: var(--space-sm);
         }
 
         .modal__body li {
             color: var(--color-text-secondary);
-            margin-bottom: var(--spacing-xs);
-            padding-left: var(--spacing-sm);
+            margin-bottom: var(--space-xs);
+            padding-left: var(--space-sm);
             position: relative;
-            font-size: var(--font-size-sm);
+            font-size: var(--text-sm);
         }
 
         .modal__body li::before {
@@ -1988,8 +1956,8 @@
 
         @media (max-width: 992px) {
             :root {
-                --font-size-4xl: 2.5rem;
-                --font-size-3xl: 2rem;
+                --text-4xl: 2.5rem;
+                --text-3xl: 2rem;
             }
 
             .services__grid {
@@ -1998,7 +1966,7 @@
 
             .steps__grid {
                 grid-template-columns: 1fr;
-                gap: var(--spacing-xl);
+                gap: var(--space-xl);
             }
 
             .steps__grid::before {
@@ -2010,8 +1978,14 @@
                 grid-template-columns: 1fr;
             }
 
+            .safety__grid,
             .testimonials__grid {
                 grid-template-columns: 1fr;
+            }
+
+            .safety__highlight {
+                flex-direction: column;
+                gap: var(--space-lg);
             }
 
             .footer__grid {
@@ -2025,21 +1999,20 @@
 
         @media (max-width: 768px) {
             :root {
-                --font-size-4xl: 2rem;
-                --font-size-3xl: 1.75rem;
-                --font-size-2xl: 1.5rem;
-                --container-padding: 1.25rem;
+                --text-4xl: 2rem;
+                --text-3xl: 1.75rem;
+                --text-2xl: 1.5rem;
             }
 
             .section {
-                padding: var(--spacing-2xl) 0;
+                padding: var(--space-2xl) 0;
             }
 
             .hero {
-                padding-top: 100px;
+                padding-top: calc(var(--header-height) + var(--space-lg));
             }
 
-            .hero-cta {
+            .hero__cta {
                 grid-template-columns: 1fr;
                 max-width: 320px;
             }
@@ -2080,7 +2053,7 @@
                 justify-content: center;
             }
 
-            /* Show sticky bar, hide floating */
+            /* Mobile: Show sticky bar, hide floating buttons */
             .sticky-bar {
                 display: block;
             }
@@ -2089,13 +2062,14 @@
                 display: none;
             }
 
+            /* Add padding for sticky bar */
             body {
-                padding-bottom: 76px;
+                padding-bottom: 80px;
             }
 
             .value-strip__grid {
                 grid-template-columns: 1fr 1fr;
-                gap: var(--spacing-md);
+                gap: var(--space-md);
             }
 
             .value-strip__desc {
@@ -2105,270 +2079,19 @@
 
         @media (max-width: 480px) {
             :root {
-                --font-size-4xl: 1.75rem;
-                --font-size-3xl: 1.5rem;
+                --text-4xl: 1.75rem;
+                --text-3xl: 1.5rem;
             }
 
             .btn {
                 padding: 1rem 1.5rem;
-                min-height: 56px;
+                min-height: 52px;
             }
 
             .btn--large {
-                padding: 1.25rem 1.75rem;
-                min-height: 60px;
+                padding: 1.125rem 1.75rem;
+                min-height: 56px;
             }
-
-            .partners__placeholders {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-
-        /* ============================================
-           WHY CHOOSE US / SAFETY SECTION
-        ============================================ */
-        .safety__grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--spacing-lg);
-        }
-
-        .safety-card {
-            background: var(--color-bg-card);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-lg);
-            padding: var(--spacing-xl);
-            text-align: center;
-            transition: transform var(--transition-normal), box-shadow var(--transition-normal),
-                        background-color var(--transition-theme), border-color var(--transition-theme);
-        }
-
-        .safety-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--color-border-accent);
-        }
-
-        .safety-card__icon {
-            width: 72px;
-            height: 72px;
-            background: linear-gradient(135deg, var(--color-accent-glow) 0%, transparent 100%);
-            border: 2px solid var(--color-border-accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto var(--spacing-md);
-            transition: background-color var(--transition-theme), border-color var(--transition-theme);
-        }
-
-        .safety-card__icon i {
-            font-size: var(--font-size-2xl);
-            color: var(--color-accent);
-        }
-
-        .safety-card__title {
-            font-size: var(--font-size-lg);
-            margin-bottom: var(--spacing-sm);
-            color: var(--color-text-primary);
-        }
-
-        .safety-card__desc {
-            color: var(--color-text-muted);
-            font-size: var(--font-size-base);
-            line-height: 1.6;
-        }
-
-        /* Safety Highlight Box */
-        .safety__highlight {
-            margin-top: var(--spacing-2xl);
-            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
-            border-radius: var(--radius-xl);
-            padding: var(--spacing-xl);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: var(--spacing-xl);
-            color: #ffffff;
-        }
-
-        [data-theme="dark"] .safety__highlight {
-            color: var(--color-bg-primary);
-        }
-
-        .safety__highlight-item {
-            text-align: center;
-        }
-
-        .safety__highlight-number {
-            font-family: var(--font-display);
-            font-size: var(--font-size-4xl);
-            font-weight: 700;
-            display: block;
-        }
-
-        .safety__highlight-label {
-            font-size: var(--font-size-sm);
-            opacity: 0.9;
-        }
-
-        @media (max-width: 992px) {
-            .safety__grid {
-                grid-template-columns: 1fr;
-            }
-
-            .safety__highlight {
-                flex-direction: column;
-                gap: var(--spacing-lg);
-            }
-        }
-
-        /* ============================================
-           FEEDBACK FORM SECTION
-        ============================================ */
-        .feedback__container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .feedback__form {
-            background: var(--color-bg-card);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-xl);
-            padding: var(--spacing-2xl);
-            transition: background-color var(--transition-theme), border-color var(--transition-theme);
-        }
-
-        .feedback__row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-md);
-        }
-
-        @media (max-width: 600px) {
-            .feedback__row {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .feedback__group {
-            margin-bottom: var(--spacing-md);
-        }
-
-        .feedback__label {
-            display: block;
-            font-family: var(--font-display);
-            font-size: var(--font-size-sm);
-            font-weight: 600;
-            color: var(--color-text-primary);
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .feedback__input,
-        .feedback__select,
-        .feedback__textarea {
-            width: 100%;
-            padding: var(--spacing-md);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-md);
-            font-family: var(--font-body);
-            font-size: var(--font-size-base);
-            color: var(--color-text-primary);
-            background: var(--color-bg-primary);
-            transition: border-color var(--transition-fast), box-shadow var(--transition-fast),
-                        background-color var(--transition-theme);
-            min-height: 52px;
-        }
-
-        .feedback__input:focus,
-        .feedback__select:focus,
-        .feedback__textarea:focus {
-            outline: none;
-            border-color: var(--color-accent);
-            box-shadow: 0 0 0 3px var(--color-accent-glow);
-        }
-
-        .feedback__input::placeholder,
-        .feedback__textarea::placeholder {
-            color: var(--color-text-muted);
-        }
-
-        .feedback__textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .feedback__rating {
-            display: flex;
-            gap: var(--spacing-xs);
-            margin-top: var(--spacing-xs);
-        }
-
-        .feedback__star {
-            font-size: var(--font-size-2xl);
-            color: var(--color-border);
-            cursor: pointer;
-            transition: color var(--transition-fast), transform var(--transition-fast);
-        }
-
-        .feedback__star:hover,
-        .feedback__star.active {
-            color: #fbbf24;
-            transform: scale(1.1);
-        }
-
-        .feedback__submit {
-            width: 100%;
-            margin-top: var(--spacing-sm);
-        }
-
-        .feedback__note {
-            text-align: center;
-            margin-top: var(--spacing-md);
-            font-size: var(--font-size-sm);
-            color: var(--color-text-muted);
-        }
-
-        .feedback__note i {
-            color: var(--color-accent);
-            margin-right: 4px;
-        }
-
-        .feedback__success {
-            display: none;
-            text-align: center;
-            padding: var(--spacing-2xl);
-        }
-
-        .feedback__success.show {
-            display: block;
-        }
-
-        .feedback__success-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--color-accent-glow);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto var(--spacing-md);
-        }
-
-        .feedback__success-icon i {
-            font-size: var(--font-size-3xl);
-            color: var(--color-accent);
-        }
-
-        .feedback__success h3 {
-            font-size: var(--font-size-xl);
-            margin-bottom: var(--spacing-sm);
-            color: var(--color-text-primary);
-        }
-
-        .feedback__success p {
-            color: var(--color-text-muted);
         }
     </style>
 </head>
@@ -2383,12 +2106,12 @@
                 <!-- Logo -->
                 <a href="#home" class="logo">
                     <div class="logo__icon">
-                        <i class="fas fa-car"></i>
+                        <i class="fas fa-moon"></i>
                     </div>
-                    <span class="logo__text">Safe<span>Ride</span></span>
+                    <span class="logo__text">Night<span>Pilot</span></span>
                 </a>
 
-                <!-- Nav Controls -->
+                <!-- Navigation Controls -->
                 <div class="nav-controls">
                     <!-- Theme Toggle -->
                     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
@@ -2397,19 +2120,19 @@
                         <i class="fas fa-moon theme-toggle__icon theme-toggle__icon--moon"></i>
                     </button>
 
-                    <!-- Desktop CTAs -->
+                    <!-- Desktop Header CTAs -->
                     <div class="header__cta">
                         <div class="header__cta-group">
-                            <a href="tel:+94771234567" class="header__cta-btn header__cta-btn--call">
+                            <a href="tel:+94771234567" class="header__btn header__btn--call">
                                 <i class="fas fa-phone-alt"></i> Call
                             </a>
-                            <a href="https://wa.me/94771234567?text=Hi%2C%20I%20need%20a%20driver%20to%20get%20home%20safely" target="_blank" class="header__cta-btn header__cta-btn--whatsapp">
+                            <a href="https://wa.me/94771234567?text=Hi%2C%20I%20need%20a%20driver%20to%20get%20home%20safely" target="_blank" class="header__btn header__btn--whatsapp">
                                 <i class="fab fa-whatsapp"></i> WhatsApp
                             </a>
                         </div>
                     </div>
 
-                    <!-- Mobile Toggle -->
+                    <!-- Mobile Menu Toggle -->
                     <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
                         <span class="mobile-toggle__bar"></span>
                         <span class="mobile-toggle__bar"></span>
@@ -2420,7 +2143,7 @@
         </div>
     </header>
 
-    <!-- Mobile Navigation -->
+    <!-- Mobile Navigation Panel -->
     <nav class="mobile-nav" id="mobileNav">
         <ul class="mobile-nav__list">
             <li><a href="#home" class="mobile-nav__link"><i class="fas fa-home"></i> Home</a></li>
@@ -2431,11 +2154,10 @@
             <li><a href="#safety" class="mobile-nav__link"><i class="fas fa-shield-alt"></i> Why Us</a></li>
             <li><a href="#testimonials" class="mobile-nav__link"><i class="fas fa-star"></i> Reviews</a></li>
             <li><a href="#faq" class="mobile-nav__link"><i class="fas fa-question-circle"></i> FAQ</a></li>
-            <li><a href="#feedback" class="mobile-nav__link"><i class="fas fa-comment-dots"></i> Feedback</a></li>
             <li><a href="#join-us" class="mobile-nav__link"><i class="fas fa-user-plus"></i> Drive With Us</a></li>
         </ul>
         <div class="mobile-nav__cta">
-            <a href="tel:+94771234567" class="btn btn--call btn--full">
+            <a href="tel:+94771234567" class="btn btn--primary btn--full">
                 <i class="fas fa-phone-alt"></i> Call Now
             </a>
             <a href="https://wa.me/94771234567?text=Hi%2C%20I%20need%20a%20driver%20to%20get%20home%20safely" target="_blank" class="btn btn--whatsapp btn--full">
@@ -2445,27 +2167,27 @@
     </nav>
 
     <!-- ============================================
-         HERO SECTION - Nightlife Focused
+         HERO SECTION
     ============================================ -->
     <section class="hero" id="home">
         <div class="container">
             <div class="hero__content">
-                <!-- Badge -->
+                <!-- Status Badge -->
                 <div class="hero__badge">
                     <i class="fas fa-circle"></i>
-                    Open Now • 24/7 Service
+                    Available Now • 24/7
                 </div>
 
-                <!-- Title - Nightlife Messaging -->
+                <!-- Main Title -->
                 <h1 class="hero__title">
                     Had a few drinks?<br>
                     <span>We'll drive you home.</span>
                 </h1>
 
-                <!-- Subtitle - Key Value Props -->
+                <!-- Subtitle -->
                 <p class="hero__subtitle">
-                    Our driver comes to you and drives YOUR car home. 
-                    No judgement. No questions. Just a safe ride.
+                    Our driver takes the wheel of YOUR car and gets you home safely. 
+                    No judgment. No questions.
                 </p>
 
                 <!-- Tagline -->
@@ -2474,16 +2196,14 @@
                     Discreet • Fast • Your Car Stays With You
                 </div>
 
-                <!-- Hero CTA - Equal Priority Buttons -->
+                <!-- CTA Buttons - Equal Priority -->
                 <div class="hero__cta">
-                    <div class="hero-cta">
-                        <a href="tel:+94771234567" class="btn btn--call btn--large">
-                            <i class="fas fa-phone-alt"></i> Call Now
-                        </a>
-                        <a href="https://wa.me/94771234567?text=Hi%2C%20I%20need%20a%20driver%20to%20get%20home%20safely" target="_blank" class="btn btn--whatsapp btn--large">
-                            <i class="fab fa-whatsapp"></i> WhatsApp
-                        </a>
-                    </div>
+                    <a href="tel:+94771234567" class="btn btn--primary btn--large">
+                        <i class="fas fa-phone-alt"></i> Call Now
+                    </a>
+                    <a href="https://wa.me/94771234567?text=Hi%2C%20I%20need%20a%20driver%20to%20get%20home%20safely" target="_blank" class="btn btn--whatsapp btn--large">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
                 </div>
 
                 <!-- Trust Indicators -->
@@ -2521,7 +2241,7 @@
     </section>
 
     <!-- ============================================
-         VALUE PROPOSITION STRIP
+         VALUE STRIP
     ============================================ -->
     <section class="value-strip">
         <div class="container">
@@ -2564,12 +2284,12 @@
     <section class="section section--alt" id="services">
         <div class="container">
             <div class="section-header">
-                <span class="section-header__badge">
+                <span class="section-badge">
                     <i class="fas fa-glass-cheers"></i> For Night Owls
                 </span>
-                <h2 class="section-header__title">How We <span>Help</span></h2>
-                <p class="section-header__subtitle">
-                    Enjoy your night out. We'll handle the drive home.
+                <h2 class="section-title">How We <span>Help</span></h2>
+                <p class="section-subtitle">
+                    Enjoy your night out. We handle the ride home.
                 </p>
             </div>
 
@@ -2580,7 +2300,7 @@
                     </div>
                     <h3 class="service-card__title">We Drive Your Car</h3>
                     <p class="service-card__desc">
-                        No taxi, no leaving your car behind. Our driver takes the wheel of YOUR vehicle and drives you both home safely.
+                        No taxi needed. Our driver gets behind the wheel of YOUR vehicle and drives you both home safely.
                     </p>
                 </div>
 
@@ -2590,7 +2310,7 @@
                     </div>
                     <h3 class="service-card__title">100% Discreet</h3>
                     <p class="service-card__desc">
-                        No questions, no judgement. We don't care where you've been – just that you get home safe. Complete confidentiality.
+                        No questions, no judgment. We don't care where you've been – just that you get home safe.
                     </p>
                 </div>
 
@@ -2600,7 +2320,7 @@
                     </div>
                     <h3 class="service-card__title">Late Night Ready</h3>
                     <p class="service-card__desc">
-                        Clubs, bars, parties, dinners – we're available all night long. Call us at 2am, 4am, whenever you need us.
+                        Clubs, bars, parties – we're available all night. Call us at 2am, 4am, whenever you need.
                     </p>
                 </div>
 
@@ -2610,7 +2330,7 @@
                     </div>
                     <h3 class="service-card__title">Avoid The Risk</h3>
                     <p class="service-card__desc">
-                        Skip the DUI fines, license suspension, or worse. A small fee now saves you from big problems later.
+                        Skip the DUI fines, license suspension, or worse. A small fee saves you from big problems.
                     </p>
                 </div>
             </div>
@@ -2618,16 +2338,16 @@
     </section>
 
     <!-- ============================================
-         HOW IT WORKS SECTION
+         HOW IT WORKS
     ============================================ -->
     <section class="section" id="how-it-works">
         <div class="container">
             <div class="section-header">
-                <span class="section-header__badge">
+                <span class="section-badge">
                     <i class="fas fa-magic"></i> Super Simple
                 </span>
-                <h2 class="section-header__title">How It <span>Works</span></h2>
-                <p class="section-header__subtitle">
+                <h2 class="section-title">How It <span>Works</span></h2>
+                <p class="section-subtitle">
                     Three easy steps to get home safely
                 </p>
             </div>
@@ -2656,7 +2376,7 @@
                     <i class="fas fa-home step-card__icon"></i>
                     <h3 class="step-card__title">You're Home</h3>
                     <p class="step-card__desc">
-                        Sit back while we drive you AND your car to your doorstep. Done.
+                        Sit back while we drive you AND your car to your doorstep.
                     </p>
                 </div>
             </div>
@@ -2669,11 +2389,11 @@
     <section class="section section--alt" id="pricing">
         <div class="container">
             <div class="section-header">
-                <span class="section-header__badge">
+                <span class="section-badge">
                     <i class="fas fa-tag"></i> Fair Rates
                 </span>
-                <h2 class="section-header__title">Simple <span>Pricing</span></h2>
-                <p class="section-header__subtitle">
+                <h2 class="section-title">Simple <span>Pricing</span></h2>
+                <p class="section-subtitle">
                     Way cheaper than a DUI fine or an accident
                 </p>
             </div>
@@ -2703,7 +2423,7 @@
                 </div>
 
                 <div class="pricing__cta">
-                    <a href="tel:+94771234567" class="btn btn--call">
+                    <a href="tel:+94771234567" class="btn btn--primary">
                         <i class="fas fa-phone-alt"></i> Call
                     </a>
                     <a href="https://wa.me/94771234567?text=Hi%2C%20I%20need%20a%20ride%20home" target="_blank" class="btn btn--whatsapp">
@@ -2725,11 +2445,11 @@
     <section class="section" id="coverage">
         <div class="container">
             <div class="section-header">
-                <span class="section-header__badge">
+                <span class="section-badge">
                     <i class="fas fa-map-marker-alt"></i> Where We Operate
                 </span>
-                <h2 class="section-header__title">Coverage <span>Area</span></h2>
-                <p class="section-header__subtitle">
+                <h2 class="section-title">Coverage <span>Area</span></h2>
+                <p class="section-subtitle">
                     Serving Colombo's nightlife scene
                 </p>
             </div>
@@ -2751,7 +2471,7 @@
 
                     <div class="coverage__note">
                         <i class="fas fa-rocket"></i>
-                        <p><strong>Expanding soon!</strong><br>Negombo, Kandy, Galle on the way. Contact us for special requests.</p>
+                        <p><strong>Expanding soon!</strong><br>Negombo, Kandy, Galle on the way.</p>
                     </div>
                 </div>
 
@@ -2762,7 +2482,7 @@
                         allowfullscreen="" 
                         loading="lazy" 
                         referrerpolicy="no-referrer-when-downgrade"
-                        title="SafeRide Coverage - Colombo">
+                        title="NightPilot Coverage - Colombo">
                     </iframe>
                 </div>
             </div>
@@ -2770,17 +2490,17 @@
     </section>
 
     <!-- ============================================
-         WHY CHOOSE US / SAFETY SECTION
+         WHY CHOOSE US / SAFETY
     ============================================ -->
-    <section class="section" id="safety">
+    <section class="section section--alt" id="safety">
         <div class="container">
             <div class="section-header">
-                <span class="section-header__badge">
-                    <i class="fas fa-shield-alt"></i> Why SafeRide
+                <span class="section-badge">
+                    <i class="fas fa-shield-alt"></i> Why NightPilot
                 </span>
-                <h2 class="section-header__title">Why <span>Choose Us</span></h2>
-                <p class="section-header__subtitle">
-                    Your safety is our top priority – here's why thousands trust us
+                <h2 class="section-title">Why <span>Choose Us</span></h2>
+                <p class="section-subtitle">
+                    Your safety is our top priority
                 </p>
             </div>
 
@@ -2791,7 +2511,7 @@
                     </div>
                     <h3 class="safety-card__title">Verified Drivers</h3>
                     <p class="safety-card__desc">
-                        Every driver undergoes thorough background checks, license verification, and professional training before joining our team.
+                        Every driver undergoes background checks, license verification, and professional training.
                     </p>
                 </div>
 
@@ -2801,7 +2521,7 @@
                     </div>
                     <h3 class="safety-card__title">Real-Time Tracking</h3>
                     <p class="safety-card__desc">
-                        Share your ride with loved ones. They can track your journey in real-time until you're safely home.
+                        Share your ride with loved ones. They can track your journey until you're safely home.
                     </p>
                 </div>
 
@@ -2811,7 +2531,7 @@
                     </div>
                     <h3 class="safety-card__title">Fully Insured</h3>
                     <p class="safety-card__desc">
-                        Every ride is covered by comprehensive insurance. Your vehicle and passengers are protected throughout the journey.
+                        Every ride is covered by comprehensive insurance. Your vehicle and passengers are protected.
                     </p>
                 </div>
 
@@ -2821,7 +2541,7 @@
                     </div>
                     <h3 class="safety-card__title">24/7 Support</h3>
                     <p class="safety-card__desc">
-                        Our support team is available around the clock. Any issues during your ride? We're just a call away.
+                        Our support team is available around the clock. Any issues? We're just a call away.
                     </p>
                 </div>
 
@@ -2831,7 +2551,7 @@
                     </div>
                     <h3 class="safety-card__title">Experienced Drivers</h3>
                     <p class="safety-card__desc">
-                        Our drivers have extensive experience with all vehicle types – from compact cars to luxury SUVs. They handle your car with care.
+                        Our drivers handle all vehicle types with care – from compact cars to luxury SUVs.
                     </p>
                 </div>
 
@@ -2841,16 +2561,16 @@
                     </div>
                     <h3 class="safety-card__title">Legal & Compliant</h3>
                     <p class="safety-card__desc">
-                        We operate fully within Sri Lankan traffic laws. Using our service helps you avoid DUI penalties, license suspension, and legal troubles.
+                        Using our service helps you avoid DUI penalties, license suspension, and legal troubles.
                     </p>
                 </div>
             </div>
 
-            <!-- Safety Stats Highlight -->
+            <!-- Safety Stats -->
             <div class="safety__highlight">
                 <div class="safety__highlight-item">
                     <span class="safety__highlight-number">5,000+</span>
-                    <span class="safety__highlight-label">Safe Rides Completed</span>
+                    <span class="safety__highlight-label">Safe Rides</span>
                 </div>
                 <div class="safety__highlight-item">
                     <span class="safety__highlight-number">100%</span>
@@ -2858,56 +2578,27 @@
                 </div>
                 <div class="safety__highlight-item">
                     <span class="safety__highlight-number">4.9★</span>
-                    <span class="safety__highlight-label">Customer Rating</span>
+                    <span class="safety__highlight-label">Rating</span>
                 </div>
                 <div class="safety__highlight-item">
                     <span class="safety__highlight-number">15 min</span>
-                    <span class="safety__highlight-label">Avg. Response Time</span>
+                    <span class="safety__highlight-label">Avg. Response</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ============================================
-         NIGHTLIFE PARTNERS SECTION
+         TESTIMONIALS
     ============================================ -->
-    <section class="section section--dark partners" id="partners">
-        <div class="container">
-            <div class="partners__content">
-                <div class="partners__icon">
-                    <i class="fas fa-handshake"></i>
-                </div>
-                <h2 class="partners__title">Nightlife <span>Partners</span></h2>
-                <p class="partners__desc">
-                    We're partnering with Colombo's top clubs, bars, and restaurants to keep their guests safe. 
-                    Want to offer SafeRide to your customers?
-                </p>
-
-                <div class="partners__placeholders">
-                    <div class="partner-placeholder">Your Club</div>
-                    <div class="partner-placeholder">Your Bar</div>
-                    <div class="partner-placeholder">Your Venue</div>
-                </div>
-
-                <a href="mailto:partners@saferidelk.com" class="partners__contact">
-                    <i class="fas fa-envelope"></i>
-                    <span>Partner with us: <strong>partners@saferidelk.com</strong></span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================
-         TESTIMONIALS SECTION
-    ============================================ -->
-    <section class="section section--alt" id="testimonials">
+    <section class="section" id="testimonials">
         <div class="container">
             <div class="section-header">
-                <span class="section-header__badge">
+                <span class="section-badge">
                     <i class="fas fa-star"></i> Real Stories
                 </span>
-                <h2 class="section-header__title">What People <span>Say</span></h2>
-                <p class="section-header__subtitle">
+                <h2 class="section-title">What People <span>Say</span></h2>
+                <p class="section-subtitle">
                     From people who made the smart choice
                 </p>
             </div>
@@ -2922,7 +2613,7 @@
                         <i class="fas fa-star"></i>
                     </div>
                     <p class="testimonial-card__quote">
-                        "Called them at 3am after a birthday party. Driver showed up fast, super professional, no awkward questions. Got me and my car home safe. Lifesaver!"
+                        "Called them at 3am after a birthday party. Driver showed up fast, super professional, no awkward questions. Lifesaver!"
                     </p>
                     <div class="testimonial-card__author">
                         <div class="testimonial-card__avatar">RK</div>
@@ -2942,7 +2633,7 @@
                         <i class="fas fa-star"></i>
                     </div>
                     <p class="testimonial-card__quote">
-                        "Best decision I made that night. Had a bit too much at a work event, didn't want to risk it. Quick service, fair price, completely discreet."
+                        "Best decision I made that night. Had a bit too much at a work event. Quick service, fair price, completely discreet."
                     </p>
                     <div class="testimonial-card__author">
                         <div class="testimonial-card__avatar">SP</div>
@@ -2962,7 +2653,7 @@
                         <i class="fas fa-star"></i>
                     </div>
                     <p class="testimonial-card__quote">
-                        "Use them every weekend now. Club closes at 4am, they're always available. Way smarter than risking a fine or accident. Highly recommend!"
+                        "Use them every weekend now. Club closes at 4am, they're always available. Highly recommend NightPilot!"
                     </p>
                     <div class="testimonial-card__author">
                         <div class="testimonial-card__avatar">MF</div>
@@ -2979,14 +2670,14 @@
     <!-- ============================================
          FAQ SECTION
     ============================================ -->
-    <section class="section" id="faq">
+    <section class="section section--alt" id="faq">
         <div class="container">
             <div class="section-header">
-                <span class="section-header__badge">
+                <span class="section-badge">
                     <i class="fas fa-question-circle"></i> Got Questions?
                 </span>
-                <h2 class="section-header__title">Quick <span>Answers</span></h2>
-                <p class="section-header__subtitle">
+                <h2 class="section-title">Quick <span>Answers</span></h2>
+                <p class="section-subtitle">
                     Everything you need to know
                 </p>
             </div>
@@ -2999,7 +2690,7 @@
                     </button>
                     <div class="faq-item__answer">
                         <div class="faq-item__answer-inner">
-                            Yes! That's the whole point. Our driver comes to wherever you are, gets behind the wheel of YOUR car, and drives you home as a passenger. Your car stays with you – no need to pick it up tomorrow.
+                            Yes! Our driver comes to you, gets behind the wheel of YOUR car, and drives you home as a passenger. Your car stays with you – no need to pick it up tomorrow.
                         </div>
                     </div>
                 </div>
@@ -3011,7 +2702,7 @@
                     </button>
                     <div class="faq-item__answer">
                         <div class="faq-item__answer-inner">
-                            Any time. We operate 24/7 but we're especially busy (and ready!) during late nights and early mornings. 2am, 4am, 6am – doesn't matter. Call us whenever you need.
+                            Any time. We operate 24/7 but we're especially ready during late nights. 2am, 4am, 6am – doesn't matter. Call us whenever you need.
                         </div>
                     </div>
                 </div>
@@ -3035,7 +2726,7 @@
                     </button>
                     <div class="faq-item__answer">
                         <div class="faq-item__answer-inner">
-                            100%. Our drivers are professionals – they don't ask where you've been, don't make comments, don't judge. Your business is your business. We just get you home safely.
+                            100%. Our drivers are professionals – they don't ask where you've been, don't make comments, don't judge. We just get you home safely.
                         </div>
                     </div>
                 </div>
@@ -3047,7 +2738,7 @@
                     </button>
                     <div class="faq-item__answer">
                         <div class="faq-item__answer-inner">
-                            Usually 15-20 minutes in Colombo area. We'll give you an ETA when you call. During peak hours (club closing time) it might be slightly longer, but we hustle.
+                            Usually 15-20 minutes in Colombo area. We'll give you an ETA when you call. During peak hours it might be slightly longer, but we hustle.
                         </div>
                     </div>
                 </div>
@@ -3056,25 +2747,25 @@
     </section>
 
     <!-- ============================================
-         DRIVER RECRUITMENT SECTION
+         BECOME A DRIVER
     ============================================ -->
-    <section class="section section--alt" id="join-us">
+    <section class="section" id="join-us">
         <div class="container">
             <div class="section-header">
-                <span class="section-header__badge">
+                <span class="section-badge">
                     <i class="fas fa-users"></i> Join The Team
                 </span>
-                <h2 class="section-header__title">Become a <span>Driver</span></h2>
-                <p class="section-header__subtitle">
+                <h2 class="section-title">Become a <span>Driver</span></h2>
+                <p class="section-subtitle">
                     Night owl? Earn money helping people get home safe.
                 </p>
             </div>
 
             <div class="recruitment__content">
                 <div class="recruitment__info">
-                    <h3>Drive with <span>SafeRide</span></h3>
+                    <h3>Drive with <span>NightPilot</span></h3>
                     <p>
-                        We're looking for reliable, professional drivers who are comfortable with late-night work. Flexible hours, good pay, and you're actually helping keep people safe.
+                        We're looking for reliable, professional drivers comfortable with late-night work. Flexible hours, good pay, and you're actually helping keep people safe.
                     </p>
 
                     <div class="recruitment__requirements">
@@ -3102,9 +2793,9 @@
                     </div>
 
                     <div class="recruitment__contact">
-                        <a href="mailto:drivers@saferidelk.com" class="recruitment__contact-item">
+                        <a href="mailto:drivers@nightpilot.lk" class="recruitment__contact-item">
                             <i class="fas fa-envelope"></i>
-                            <span>Email CV: <strong>drivers@saferidelk.com</strong></span>
+                            <span>Email CV: <strong>drivers@nightpilot.lk</strong></span>
                         </a>
                         <a href="tel:+94771234567" class="recruitment__contact-item">
                             <i class="fas fa-phone-alt"></i>
@@ -3133,101 +2824,6 @@
     </section>
 
     <!-- ============================================
-         CUSTOMER FEEDBACK FORM
-    ============================================ -->
-    <section class="section section--alt" id="feedback">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-header__badge">
-                    <i class="fas fa-comment-dots"></i> Your Voice Matters
-                </span>
-                <h2 class="section-header__title">Share Your <span>Experience</span></h2>
-                <p class="section-header__subtitle">
-                    Help us improve – your feedback makes SafeRide better for everyone
-                </p>
-            </div>
-
-            <div class="feedback__container">
-                <div class="feedback__form" id="feedbackFormContainer">
-                    <!-- 
-                        FORMSPREE INTEGRATION
-                        =====================
-                        1. Go to https://formspree.io and create a free account
-                        2. Create a new form and get your form ID (e.g., xabcdefg)
-                        3. Replace YOUR_FORM_ID below with your actual form ID
-                        Example: action="https://formspree.io/f/xabcdefg"
-                    -->
-                    <form id="feedbackForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                        <div class="feedback__row">
-                            <div class="feedback__group">
-                                <label class="feedback__label" for="feedbackName">Your Name</label>
-                                <input type="text" id="feedbackName" name="name" class="feedback__input" placeholder="John Doe" required>
-                            </div>
-                            <div class="feedback__group">
-                                <label class="feedback__label" for="feedbackPhone">Phone (Optional)</label>
-                                <input type="tel" id="feedbackPhone" name="phone" class="feedback__input" placeholder="+94 77 XXX XXXX">
-                            </div>
-                        </div>
-
-                        <div class="feedback__group">
-                            <label class="feedback__label" for="feedbackEmail">Email Address</label>
-                            <input type="email" id="feedbackEmail" name="email" class="feedback__input" placeholder="your@email.com" required>
-                        </div>
-
-                        <div class="feedback__group">
-                            <label class="feedback__label" for="feedbackType">Feedback Type</label>
-                            <select id="feedbackType" name="type" class="feedback__select" required>
-                                <option value="" disabled selected>Select feedback type...</option>
-                                <option value="compliment">Compliment / Great Experience</option>
-                                <option value="suggestion">Suggestion / Feature Request</option>
-                                <option value="complaint">Complaint / Issue Report</option>
-                                <option value="question">General Question</option>
-                            </select>
-                        </div>
-
-                        <div class="feedback__group">
-                            <label class="feedback__label">Rate Your Experience</label>
-                            <div class="feedback__rating" id="starRating">
-                                <i class="fas fa-star feedback__star" data-rating="1"></i>
-                                <i class="fas fa-star feedback__star" data-rating="2"></i>
-                                <i class="fas fa-star feedback__star" data-rating="3"></i>
-                                <i class="fas fa-star feedback__star" data-rating="4"></i>
-                                <i class="fas fa-star feedback__star" data-rating="5"></i>
-                            </div>
-                            <input type="hidden" id="ratingValue" name="rating" value="5">
-                        </div>
-
-                        <div class="feedback__group">
-                            <label class="feedback__label" for="feedbackMessage">Your Message</label>
-                            <textarea id="feedbackMessage" name="message" class="feedback__textarea" placeholder="Tell us about your experience..." required></textarea>
-                        </div>
-
-                        <!-- Honeypot field for spam protection -->
-                        <input type="text" name="_gotcha" style="display:none">
-
-                        <button type="submit" class="btn btn--call feedback__submit">
-                            <i class="fas fa-paper-plane"></i> Submit Feedback
-                        </button>
-                    </form>
-
-                    <p class="feedback__note">
-                        <i class="fas fa-lock"></i> Your information is private and will only be used to improve our service.
-                    </p>
-                </div>
-
-                <!-- Success Message (shown after submission) -->
-                <div class="feedback__success" id="feedbackSuccess">
-                    <div class="feedback__success-icon">
-                        <i class="fas fa-check"></i>
-                    </div>
-                    <h3>Thank You!</h3>
-                    <p>Your feedback has been submitted. We appreciate you taking the time to help us improve SafeRide.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================
          CONTACT CTA SECTION
     ============================================ -->
     <section class="contact-cta" id="contact">
@@ -3239,7 +2835,7 @@
                 </p>
                 
                 <div class="contact-cta__buttons">
-                    <a href="tel:+94771234567" class="btn btn--call btn--large">
+                    <a href="tel:+94771234567" class="btn btn--large">
                         <i class="fas fa-phone-alt"></i> Call Now
                     </a>
                     <a href="https://wa.me/94771234567?text=Hi%2C%20I%20need%20a%20driver%20to%20get%20home%20safely" target="_blank" class="btn btn--whatsapp btn--large">
@@ -3260,7 +2856,7 @@
          FLOATING CONTACT BUTTONS (Desktop)
     ============================================ -->
     <div class="floating-btns">
-        <a href="https://wa.me/94771234567?text=Hi%2C%20I%20need%20a%20driver%20to%20get%20home%20safely" target="_blank" class="floating-btn floating-btn--whatsapp" aria-label="WhatsApp">
+        <a href="https://wa.me/94771234567?text=Hi%2C%20I%20need%20a%20driver" target="_blank" class="floating-btn floating-btn--whatsapp" aria-label="WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
         <a href="tel:+94771234567" class="floating-btn floating-btn--call" aria-label="Call Now">
@@ -3277,7 +2873,7 @@
                 <a href="tel:+94771234567" class="sticky-bar__btn sticky-bar__btn--call">
                     <i class="fas fa-phone-alt"></i> Call
                 </a>
-                <a href="https://wa.me/94771234567?text=Hi%2C%20I%20need%20a%20driver%20to%20get%20home%20safely" target="_blank" class="sticky-bar__btn sticky-bar__btn--whatsapp">
+                <a href="https://wa.me/94771234567?text=Hi%2C%20I%20need%20a%20driver" target="_blank" class="sticky-bar__btn sticky-bar__btn--whatsapp">
                     <i class="fab fa-whatsapp"></i> WhatsApp
                 </a>
             </div>
@@ -3294,12 +2890,12 @@
                 <div class="footer__brand">
                     <a href="#home" class="logo">
                         <div class="logo__icon">
-                            <i class="fas fa-car"></i>
+                            <i class="fas fa-moon"></i>
                         </div>
-                        <span class="logo__text">Safe<span>Ride</span></span>
+                        <span class="logo__text">Night<span>Pilot</span></span>
                     </a>
                     <p>
-                        Colombo's trusted late-night designated driver service. Had a few drinks? We drive you AND your car home. No judgement, just safe rides.
+                        Colombo's trusted late-night designated driver service. Had a few drinks? We drive you AND your car home. No judgment, just safe rides.
                     </p>
                     
                     <!-- Social Links -->
@@ -3330,7 +2926,6 @@
                         <li><a href="#coverage">Coverage</a></li>
                         <li><a href="#safety">Why Choose Us</a></li>
                         <li><a href="#faq">FAQ</a></li>
-                        <li><a href="#feedback">Feedback</a></li>
                         <li><a href="#join-us">Join Us</a></li>
                     </ul>
                 </div>
@@ -3342,7 +2937,7 @@
                         <li><a href="#services">Drive Your Car</a></li>
                         <li><a href="#services">Late Night Service</a></li>
                         <li><a href="#services">Club Pickup</a></li>
-                        <li><a href="#partners">Venue Partnerships</a></li>
+                        <li><a href="#services">Corporate Events</a></li>
                     </ul>
                 </div>
 
@@ -3359,7 +2954,7 @@
                     </div>
                     <div class="footer__contact-item">
                         <i class="fas fa-envelope"></i>
-                        <p>hello@saferidelk.com</p>
+                        <p>hello@nightpilot.lk</p>
                     </div>
                     <div class="footer__contact-item">
                         <i class="fas fa-clock"></i>
@@ -3370,7 +2965,7 @@
 
             <!-- Footer Bottom -->
             <div class="footer__bottom">
-                <p>&copy; 2026 SafeRide LK. All Rights Reserved.</p>
+                <p>&copy; 2026 NightPilot. All Rights Reserved.</p>
                 
                 <div class="footer__legal">
                     <button type="button" onclick="openModal('termsModal')">Terms</button>
@@ -3385,7 +2980,7 @@
          LEGAL MODALS
     ============================================ -->
     
-    <!-- Terms Modal -->
+    <!-- Terms of Service Modal -->
     <div class="modal-overlay" id="termsModal">
         <div class="modal">
             <div class="modal__header">
@@ -3408,11 +3003,14 @@
                 
                 <h4>Payment</h4>
                 <p>Payment due upon arrival. Cash and card accepted. Pricing based on distance and waiting time.</p>
+                
+                <h4>Cancellations</h4>
+                <p>Cancellations after driver dispatch may incur a fee. Contact us immediately if plans change.</p>
             </div>
         </div>
     </div>
 
-    <!-- Privacy Modal -->
+    <!-- Privacy Policy Modal -->
     <div class="modal-overlay" id="privacyModal">
         <div class="modal">
             <div class="modal__header">
@@ -3436,7 +3034,11 @@
                     <li>Never sold to third parties</li>
                     <li>Not shared with advertisers</li>
                     <li>Kept confidential</li>
+                    <li>Deleted after service completion</li>
                 </ul>
+                
+                <h4>Contact</h4>
+                <p>Questions about your data? Contact us at privacy@nightpilot.lk</p>
             </div>
         </div>
     </div>
@@ -3452,70 +3054,93 @@
             </div>
             <div class="modal__body">
                 <h4>Service Purpose</h4>
-                <p>SafeRide LK helps people get home safely when they choose not to drive. We provide this service in good faith.</p>
+                <p>NightPilot helps people get home safely when they choose not to drive. We provide this service in good faith.</p>
                 
                 <h4>Limitations</h4>
                 <ul>
                     <li>Not responsible for customer's activities</li>
                     <li>Not liable for pre-existing vehicle issues</li>
                     <li>Delays from traffic beyond our control</li>
+                    <li>Service availability not guaranteed</li>
                 </ul>
                 
                 <h4>Vehicle Safety</h4>
                 <p>Customers must ensure vehicle is safe to drive. Drivers can refuse service if vehicle is unsafe.</p>
+                
+                <h4>Personal Belongings</h4>
+                <p>We are not responsible for items left in vehicles. Please check before exiting.</p>
             </div>
         </div>
     </div>
 
     <!-- ============================================
          JAVASCRIPT
+         Theme toggle, mobile nav, FAQ accordion, modals
     ============================================ -->
     <script>
         /**
-         * SafeRide LK - JavaScript
-         * Theme toggle, mobile nav, FAQ accordion, modals
+         * NightPilot - JavaScript
+         * 
+         * Features:
+         * 1. Theme Toggle - Auto-detect + manual switch + localStorage persistence
+         * 2. Mobile Navigation - Smooth slide-in panel
+         * 3. Smooth Scroll - Section navigation with header offset
+         * 4. FAQ Accordion - Collapsible answer sections
+         * 5. Legal Modals - Terms, Privacy, Disclaimer popups
          */
 
         // ============================================
-        // THEME TOGGLE - Auto-detect + Manual
+        // THEME TOGGLE SYSTEM
+        // Auto-detects system preference, allows manual override,
+        // persists choice in localStorage, smooth transitions
         // ============================================
         const themeToggle = document.getElementById('themeToggle');
-        const html = document.documentElement;
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+        const htmlElement = document.documentElement;
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
         
-        function getTheme() {
-            const saved = localStorage.getItem('theme');
-            if (saved) return saved;
-            return prefersDark.matches ? 'dark' : 'light';
+        /**
+         * Get the current theme from localStorage or system preference
+         */
+        function getPreferredTheme() {
+            const savedTheme = localStorage.getItem('nightpilot-theme');
+            if (savedTheme) {
+                return savedTheme;
+            }
+            return prefersDarkScheme.matches ? 'dark' : 'light';
         }
         
+        /**
+         * Apply the theme to the document
+         */
         function setTheme(theme) {
             if (theme === 'dark') {
-                html.setAttribute('data-theme', 'dark');
+                htmlElement.setAttribute('data-theme', 'dark');
             } else {
-                html.removeAttribute('data-theme');
+                htmlElement.removeAttribute('data-theme');
             }
-            localStorage.setItem('theme', theme);
+            localStorage.setItem('nightpilot-theme', theme);
         }
         
-        // Initialize
-        setTheme(getTheme());
+        // Initialize theme on page load
+        setTheme(getPreferredTheme());
         
-        // Toggle on click
+        // Toggle theme on button click
         themeToggle.addEventListener('click', () => {
-            const current = html.getAttribute('data-theme');
-            setTheme(current === 'dark' ? 'light' : 'dark');
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
         });
         
-        // Listen for system changes
-        prefersDark.addEventListener('change', (e) => {
-            if (!localStorage.getItem('theme')) {
+        // Listen for system theme changes (if user hasn't set preference)
+        prefersDarkScheme.addEventListener('change', (e) => {
+            if (!localStorage.getItem('nightpilot-theme')) {
                 setTheme(e.matches ? 'dark' : 'light');
             }
         });
 
         // ============================================
         // MOBILE NAVIGATION
+        // Toggle mobile nav panel with hamburger menu
         // ============================================
         const mobileToggle = document.getElementById('mobileToggle');
         const mobileNav = document.getElementById('mobileNav');
@@ -3524,11 +3149,13 @@
         function toggleMobileNav() {
             mobileNav.classList.toggle('mobile-nav--active');
             mobileToggle.classList.toggle('mobile-toggle--active');
+            // Prevent body scroll when nav is open
             document.body.style.overflow = mobileNav.classList.contains('mobile-nav--active') ? 'hidden' : '';
         }
         
         mobileToggle.addEventListener('click', toggleMobileNav);
         
+        // Close nav when a link is clicked
         mobileNavLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileNav.classList.remove('mobile-nav--active');
@@ -3539,11 +3166,13 @@
 
         // ============================================
         // SMOOTH SCROLL
+        // Navigate to sections with header offset
         // ============================================
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
                 if (target) {
                     const headerHeight = document.getElementById('header').offsetHeight;
                     const targetPosition = target.offsetTop - headerHeight;
@@ -3557,6 +3186,8 @@
 
         // ============================================
         // FAQ ACCORDION
+        // Click to expand/collapse FAQ answers
+        // Only one item open at a time
         // ============================================
         const faqItems = document.querySelectorAll('.faq-item');
         
@@ -3564,16 +3195,16 @@
             const question = item.querySelector('.faq-item__question');
             
             question.addEventListener('click', () => {
-                const isActive = item.classList.contains('faq-item--active');
+                const isCurrentlyActive = item.classList.contains('faq-item--active');
                 
-                // Close all
+                // Close all FAQ items first
                 faqItems.forEach(faq => {
                     faq.classList.remove('faq-item--active');
                     faq.querySelector('.faq-item__question').setAttribute('aria-expanded', 'false');
                 });
                 
-                // Open clicked if wasn't active
-                if (!isActive) {
+                // If clicked item wasn't active, open it
+                if (!isCurrentlyActive) {
                     item.classList.add('faq-item--active');
                     question.setAttribute('aria-expanded', 'true');
                 }
@@ -3582,6 +3213,7 @@
 
         // ============================================
         // LEGAL MODALS
+        // Open/close modal functions for legal pages
         // ============================================
         function openModal(modalId) {
             const modal = document.getElementById(modalId);
@@ -3599,7 +3231,7 @@
             }
         }
 
-        // Close on overlay click
+        // Close modal when clicking on overlay (outside modal content)
         document.querySelectorAll('.modal-overlay').forEach(overlay => {
             overlay.addEventListener('click', function(e) {
                 if (e.target === this) {
@@ -3609,7 +3241,7 @@
             });
         });
 
-        // Close on Escape
+        // Close modal on Escape key press
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 document.querySelectorAll('.modal-overlay--active').forEach(modal => {
@@ -3618,100 +3250,6 @@
                 document.body.style.overflow = '';
             }
         });
-
-        // ============================================
-        // FEEDBACK FORM - Star Rating
-        // ============================================
-        const stars = document.querySelectorAll('.feedback__star');
-        const ratingInput = document.getElementById('ratingValue');
-        
-        if (stars.length > 0) {
-            stars.forEach(star => {
-                star.addEventListener('click', function() {
-                    const rating = this.getAttribute('data-rating');
-                    ratingInput.value = rating;
-                    
-                    // Update star visuals
-                    stars.forEach(s => {
-                        if (s.getAttribute('data-rating') <= rating) {
-                            s.classList.add('active');
-                        } else {
-                            s.classList.remove('active');
-                        }
-                    });
-                });
-                
-                // Hover effect
-                star.addEventListener('mouseenter', function() {
-                    const rating = this.getAttribute('data-rating');
-                    stars.forEach(s => {
-                        if (s.getAttribute('data-rating') <= rating) {
-                            s.style.color = '#fbbf24';
-                        } else {
-                            s.style.color = '';
-                        }
-                    });
-                });
-            });
-            
-            // Reset hover on mouse leave
-            document.getElementById('starRating').addEventListener('mouseleave', function() {
-                stars.forEach(s => {
-                    if (s.classList.contains('active')) {
-                        s.style.color = '#fbbf24';
-                    } else {
-                        s.style.color = '';
-                    }
-                });
-            });
-            
-            // Set default rating (5 stars)
-            stars.forEach(s => s.classList.add('active'));
-        }
-
-        // ============================================
-        // FEEDBACK FORM - Submission Handler
-        // ============================================
-        const feedbackForm = document.getElementById('feedbackForm');
-        const feedbackFormContainer = document.getElementById('feedbackFormContainer');
-        const feedbackSuccess = document.getElementById('feedbackSuccess');
-        
-        if (feedbackForm) {
-            feedbackForm.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                
-                const submitBtn = feedbackForm.querySelector('.feedback__submit');
-                const originalText = submitBtn.innerHTML;
-                
-                // Show loading state
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-                submitBtn.disabled = true;
-                
-                try {
-                    const response = await fetch(feedbackForm.action, {
-                        method: 'POST',
-                        body: new FormData(feedbackForm),
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    });
-                    
-                    if (response.ok) {
-                        // Show success message
-                        feedbackForm.style.display = 'none';
-                        document.querySelector('.feedback__note').style.display = 'none';
-                        feedbackSuccess.classList.add('show');
-                    } else {
-                        throw new Error('Form submission failed');
-                    }
-                } catch (error) {
-                    // Show error - reset button
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                    alert('Sorry, there was an error submitting your feedback. Please try again or contact us directly.');
-                }
-            });
-        }
     </script>
 
 </body>

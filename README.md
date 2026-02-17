@@ -1,10 +1,10 @@
-# 🚗 SafeRide LK
+# 🌙 NightPilot
 
-**Colombo's Trusted Late-Night Designated Driver Service**
+**Colombo's Premium Late-Night Designated Driver Service**
 
 > Had a few drinks? We drive YOU and YOUR CAR home safely. No judgment, just safe rides.
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge)](https://ravindu-vs.github.io/safedrive/)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-D09D5A?style=for-the-badge)](https://ravindu-vs.github.io/safedrive/)
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
@@ -13,7 +13,7 @@
 
 ## 📱 Preview
 
-![SafeRide LK Preview](https://via.placeholder.com/800x400/0891b2/ffffff?text=SafeRide+LK+Preview)
+![NightPilot Preview](https://via.placeholder.com/800x400/1E1F22/D09D5A?text=NightPilot+Preview)
 
 ---
 
@@ -25,11 +25,11 @@
 - Late-night availability (24/7)
 - Fast 15-minute response time
 
-### 🎨 Modern UI/UX
+### 🎨 Premium Lounge Aesthetic
 - **Light/Dark Mode** - Auto-detects system preference with manual toggle
 - **Mobile-First Design** - Optimized for tired/impaired users
-- **Large Touch Targets** - 64-72px buttons for easy tapping
-- **Calming Blue/Teal Palette** - Professional trust-building colors
+- **Large Touch Targets** - 56-64px buttons for easy tapping
+- **Warm Beige/Charcoal Theme** - Premium lounge aesthetic with amber/gold accents
 
 ### 📞 Easy Contact Options
 - **Equal Priority** Call & WhatsApp buttons
@@ -44,10 +44,8 @@
 - ✅ Transparent Pricing
 - ✅ Coverage Area with Google Maps
 - ✅ Why Choose Us / Safety features
-- ✅ Nightlife Partners placeholder
 - ✅ Customer Testimonials
 - ✅ FAQ Accordion
-- ✅ Customer Feedback Form (Formspree)
 - ✅ Driver Recruitment section
 - ✅ Legal Modals (Terms, Privacy, Disclaimer)
 
@@ -81,10 +79,16 @@ Currently serving **Colombo** and suburbs:
 - **HTML5** - Semantic markup
 - **CSS3** - Custom properties, Flexbox, Grid
 - **Vanilla JavaScript** - No frameworks
-- **Google Fonts** - Space Grotesk & Inter
+- **Google Fonts** - Playfair Display (headings) & DM Sans (body)
 - **Font Awesome 6.5** - Icons
-- **Formspree** - Form handling
 - **Google Maps Embed** - Coverage map
+
+### 🎨 Color Palette
+
+| Mode | Background | Surface | Text | Accent |
+|------|------------|---------|------|--------|
+| Light | #DCC6A6 (Warm Beige) | #EADBC4 (Cream) | #2B2B2B (Charcoal) | #D09D5A (Amber) |
+| Dark | #1E1F22 (Charcoal) | #27282A (Dark) | #F4E9D8 (Warm Off-White) | #D09D5A (Amber) |
 
 ---
 
@@ -134,8 +138,8 @@ Update phone numbers and WhatsApp links throughout the file:
 ## 📁 Project Structure
 
 ```
-safedrive/
-├── index.html      # Complete single-page website
+nightpilot/
+├── index.html      # Complete single-page website (~2000 lines)
 ├── README.md       # This file
 └── .git/           # Git repository
 ```
@@ -169,7 +173,7 @@ This project is for demonstration purposes. Feel free to use as a template for y
 
 ## 📧 Contact
 
-- **Email:** hello@saferidelk.com
+- **Email:** hello@nightpilot.lk
 - **Phone:** +94 77 123 4567
 - **WhatsApp:** +94 77 123 4567
 
@@ -177,4 +181,7 @@ This project is for demonstration purposes. Feel free to use as a template for y
 
 <p align="center">
   Made with ❤️ in Sri Lanka 🇱🇰
+</p>
+<p align="center">
+  🌙 <strong>NightPilot</strong> - Your Car. Your Way Home. Safe.
 </p>
